@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Home Cleaning LLC | Winter Haven, FL</title>
+    <meta name="description" content="Elegant and thorough home cleaning services in Winter Haven, Florida. Female-owned. Making homes beautiful, one sparkle at a time.">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                theme: {
+                    extend: {
+                        colors: {
+                            sage: '#7E9A6E',   // Darker sage for strong contrast
+                            mint: '#B8D1B8',
+                            cream: '#F8F4ED',
+                        }
+                    }
+                }
+            }
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+
+    <style>
+        .bubbles { position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; overflow: hidden; pointer-events: none; z-index: 1; }
+        .bubble {
+            position: absolute; bottom: -60px; background: rgba(244, 217, 224, 0.78);
+            border: 1px solid rgba(126, 154, 110, 0.4); border-radius: 50%;
+            box-shadow: 0 0 20px rgba(244, 217, 224, 0.5);
+            animation: floatBubble linear infinite;
+        }
+        .bubble::after {
+            content: ''; position: absolute; top: 28%; left: 28%; width: 28%; height: 28%;
+            background: rgba(255,255,255,0.95); border-radius: 50%;
+        }
+        @keyframes floatBubble {
+            0% { transform: translateY(0) scale(1); opacity: 0.8; }
+            100% { transform: translateY(-130vh) scale(0.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-cream text-[#2C2C2C] font-sans overflow-x-hidden">
+
+    <!-- Navigation (unchanged) -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-3 group">
+                    <div class="text-4xl transition-transform group-hover:scale-110">🧼</div>
+                    <div>
+                        <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-xs font-medium text-gray-500 -mt-1 tracking-widest">CLEANING LLC</span>
+                    </div>
+                </a>
+                <div class="flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-sage transition-colors">Home</a>
+                    <a href="services.html" class="hover:text-sage transition-colors">Services</a>
+                    <a href="about.html" class="hover:text-sage transition-colors">About</a>
+                    <a href="contact.html" class="hover:text-sage transition-colors">Contact</a>
+                </div>
+                <a href="contact.html" class="bg-sage hover:bg-[#6B8459] text-white px-7 py-3.5 rounded-3xl font-medium transition-all">Get Your Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/10 to-sage/5">
+        <div class="bubbles" id="bubbles"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 pt-12">
+            <div class="space-y-10">
+                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-3xl shadow-sm">
+                    <span class="text-lg">🌴</span>
+                    <span class="font-medium text-sage">Winter Haven, Florida</span>
+                </div>
+
+                <h1 class="text-6xl md:text-7xl font-light leading-none tracking-tighter">
+                    A cleaner home is a<br>
+                    <span class="text-sage font-medium">happier home</span>
+                </h1>
+
+                <p class="text-xl md:text-2xl text-gray-700 max-w-lg leading-relaxed">
+                    Female-owned cleaning service dedicated to bringing beauty, peace, and sparkle into every home we touch.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <!-- FIXED: Stronger, larger, high-contrast button -->
+                    <a href="contact.html" 
+                       class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-14 py-7 rounded-3xl text-2xl font-semibold shadow-xl transition-all flex items-center justify-center gap-4">
+                        Book Your Clean
+                        <span class="text-3xl">✨</span>
+                    </a>
+                    
+                    <a href="services.html" 
+                       class="border-2 border-[#7E9A6E] text-[#7E9A6E] hover:bg-[#7E9A6E] hover:text-white px-10 py-7 rounded-3xl text-lg font-medium transition-all">
+                        Explore Services
+                    </a>
+                </div>
+
+                <div class="flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-gray-600">
+                    <div class="flex items-center gap-2">⭐️⭐️⭐️⭐️⭐️ <span>4.9 from 47+ families</span></div>
+                    <div>Female-Owned &amp; Operated</div>
+                    <div>Fully Insured</div>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center md:justify-end">
+                <div class="text-[280px] md:text-[340px] leading-none text-sage/20">🧼</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Built By -->
+    <div class="text-center py-6 bg-white text-xs text-gray-400 border-t">
+        Beautifully built by <a href="https://vontamr.github.io/vsit-solutions-sECURED/" target="_blank" class="hover:text-sage underline">VSIT Solutions</a>
+    </div>
+
+    <script src="script.js"></script>
+
+    <!-- Bubble Script (unchanged) -->
+    <script>
+        function createBubbles() {
+            const container = document.getElementById('bubbles');
+            for (let i = 0; i < 38; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                const size = Math.random() * 42 + 16;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.animationDuration = `${Math.random() * 10 + 9}s`;
+                bubble.style.animationDelay = `-${Math.random() * 15}s`;
+                container.appendChild(bubble);
+            }
+        }
+        window.addEventListener('load', createBubbles);
+    </script>
+</body>
+</html>
