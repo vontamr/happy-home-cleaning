@@ -38,86 +38,83 @@
         }
         .bubble {
             position: absolute;
-            bottom: -50px;
-            background: rgba(244, 217, 224, 0.9);
-            border: 2px solid rgba(255, 255, 255, 0.95);
+            bottom: -60px;
+            background: rgba(244, 217, 224, 0.88);
             border-radius: 50%;
-            box-shadow: 0 0 30px rgba(244, 217, 224, 0.7);
+            box-shadow: 0 0 28px rgba(244, 217, 224, 0.65);
             animation: floatBubble linear infinite;
         }
         @keyframes floatBubble {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 0.9;
-            }
-            100% {
-                transform: translateY(-110vh) scale(0.3);
-                opacity: 0;
-            }
+            0% { transform: translateY(0) scale(1); opacity: 0.9; }
+            100% { transform: translateY(-120vh) scale(0.35); opacity: 0; }
         }
     </style>
 </head>
 <body class="bg-cream text-[#2C2C2C] font-sans">
 
-    <!-- Navigation -->
+    <!-- Clean Mobile-First Navigation -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-5">
             <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-sage text-white rounded-2xl flex items-center justify-center text-3xl">🧼</div>
-                    <div>
-                        <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
+
+                <!-- Logo - Much smaller and cleaner on mobile -->
+                <a href="index.html" class="flex items-center gap-2.5">
+                    <div class="w-8 h-8 bg-sage text-white rounded-2xl flex items-center justify-center text-2xl flex-shrink-0">
+                        🧼
+                    </div>
+                    <div class="leading-none">
+                        <span class="text-[22px] md:text-3xl font-light tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-[10px] md:text-xs font-medium text-gray-500 tracking-widest">CLEANING LLC</span>
                     </div>
                 </a>
 
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="index.html" class="hover:text-sage">Home</a>
-                    <a href="services.html" class="hover:text-sage">Services</a>
-                    <a href="about.html" class="hover:text-sage">About</a>
-                    <a href="contact.html" class="hover:text-sage">Contact</a>
+                <!-- Menu -->
+                <div class="flex items-center gap-5 md:gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-sage transition-colors">Home</a>
+                    <a href="services.html" class="hover:text-sage transition-colors">Services</a>
+                    <a href="about.html" class="hover:text-sage transition-colors">About</a>
+                    <a href="contact.html" class="hover:text-sage transition-colors">Contact</a>
                 </div>
 
+                <!-- Strong green button -->
                 <a href="contact.html" 
-                   class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
-                    Book Your Clean
+                   class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-6 py-3.5 rounded-3xl font-semibold text-sm md:text-base transition-all shadow-md">
+                    Book Clean
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero - New Clean Look -->
-    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/20 to-sage/10">
-        <!-- More Visible Bubbles -->
+    <!-- Hero with visible bubbles -->
+    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/15 to-sage/10">
         <div class="bubbles" id="bubbles"></div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="max-w-xl">
-                <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur-md px-6 py-3 rounded-3xl shadow mb-10">
-                    <span class="text-2xl">🌴</span>
+        <div class="max-w-7xl mx-auto px-5 md:px-6 relative z-10">
+            <div class="max-w-2xl">
+                <div class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-3xl shadow-sm mb-8">
+                    <span class="text-xl">🌴</span>
                     <span class="font-medium text-sage">Winter Haven, Florida</span>
                 </div>
 
-                <h1 class="text-6xl md:text-7xl font-light leading-none tracking-tighter mb-8">
-                    Sparkling clean homes.<br>
-                    <span class="text-sage">Happy hearts.</span>
+                <h1 class="text-5xl md:text-7xl font-light leading-none tracking-tighter mb-8">
+                    A cleaner home is a<br>
+                    <span class="text-sage font-medium">happier home</span>
                 </h1>
 
-                <p class="text-2xl text-gray-700 mb-12 leading-relaxed">
-                    Female-owned professional cleaning service delivering beautiful results 
-                    for both residential homes and commercial spaces.
+                <p class="text-xl md:text-2xl text-gray-700 mb-12">
+                    Female-owned professional cleaning for homes and businesses in Winter Haven and surrounding areas.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-5">
+                <div class="flex flex-col sm:flex-row gap-4">
                     <a href="contact.html" 
-                       class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-12 py-7 rounded-3xl text-2xl font-semibold shadow-xl transition-all flex items-center justify-center gap-3">
+                       class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-12 py-6 rounded-3xl text-2xl font-semibold shadow-xl transition-all flex items-center justify-center gap-3">
                         Book Your Clean
                         <span class="text-3xl">✨</span>
                     </a>
                     
                     <a href="services.html" 
-                       class="border-2 border-sage text-sage hover:bg-sage hover:text-white px-10 py-7 rounded-3xl text-xl font-medium transition-all">
-                        View Services
+                       class="border-2 border-sage text-sage hover:bg-sage hover:text-white px-10 py-6 rounded-3xl text-lg font-medium transition-all">
+                        See Services
                     </a>
                 </div>
             </div>
@@ -127,18 +124,15 @@
     <script>
         function createBubbles() {
             const container = document.getElementById('bubbles');
-            for (let i = 0; i < 55; i++) {           // More bubbles
+            for (let i = 0; i < 50; i++) {
                 const bubble = document.createElement('div');
                 bubble.classList.add('bubble');
-                
-                const size = Math.random() * 55 + 22;   // Bigger bubbles
+                const size = Math.random() * 52 + 20;
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
                 bubble.style.left = `${Math.random() * 100}vw`;
-                bubble.style.animationDuration = `${Math.random() * 18 + 12}s`;  // Slower, more elegant float
-                bubble.style.animationDelay = `-${Math.random() * 20}s`;
-                bubble.style.opacity = Math.random() * 0.75 + 0.6;
-                
+                bubble.style.animationDuration = `${Math.random() * 16 + 11}s`;
+                bubble.style.animationDelay = `-${Math.random() * 15}s`;
                 container.appendChild(bubble);
             }
         }
