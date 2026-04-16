@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services | Happy Home Cleaning LLC</title>
-    <meta name="description" content="Professional cleaning services in Winter Haven, FL - Regular cleaning, deep cleaning, move-in/move-out, and more.">
+    <title>Services | Happy Home Cleaning LLC</title>
+    <meta name="description" content="Professional residential and commercial cleaning services in Winter Haven, FL.">
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         function initTailwind() {
@@ -15,8 +14,8 @@
                 theme: {
                     extend: {
                         colors: {
-                            sage: '#9CAF88',
-                            mint: '#C4D9C4',
+                            sage: '#7E9A6E',
+                            mint: '#B8D1B8',
                             cream: '#F8F4ED',
                         }
                     }
@@ -33,10 +32,10 @@
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-3">
-                    <div class="text-4xl">🧼</div>
+                    <div class="w-9 h-9 bg-sage text-white rounded-2xl flex items-center justify-center text-2xl font-bold">H</div>
                     <div>
-                        <span class="text-3xl font-bold tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
+                        <span class="text-2xl font-semibold tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-xs font-medium text-gray-500">CLEANING LLC</span>
                     </div>
                 </a>
 
@@ -48,118 +47,107 @@
                 </div>
 
                 <a href="contact.html" 
-                   class="bg-sage hover:bg-[#7E9A6E] text-white px-6 py-3 rounded-2xl font-semibold transition-colors">
-                    Get a Free Quote
+                   class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
+                    Get Free Quote
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="bg-gradient-to-br from-sage/10 to-mint/10 py-20">
+    <section class="bg-gradient-to-br from-sage/10 to-cream py-16">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-6xl font-bold tracking-tighter text-sage mb-6">
-                Our Cleaning Services
-            </h1>
-            <p class="text-2xl text-gray-600 max-w-2xl mx-auto">
-                Thoughtfully designed cleaning packages to keep your home fresh, beautiful, and truly happy.
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-4">Our Professional Services</h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Reliable residential and commercial cleaning services across Winter Haven and surrounding areas.
             </p>
         </div>
     </section>
 
-    <!-- Services Grid -->
+    <!-- Services -->
     <section class="py-20">
         <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-10">
-
-                <!-- Recurring Cleaning -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-64 bg-gradient-to-br from-sage to-mint flex items-center justify-center text-8xl">
-                        ✨
+            
+            <!-- Residential -->
+            <div class="mb-20">
+                <h2 class="text-4xl font-light mb-4">🏠 Residential Cleaning</h2>
+                <p class="text-gray-600 mb-10 max-w-2xl">We treat every home like our own — thorough, gentle, and detail-oriented.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm">
+                        <h3 class="text-2xl font-medium mb-3">Recurring Cleaning</h3>
+                        <p class="text-gray-600 mb-6">Weekly, bi-weekly, or monthly maintenance to keep your home consistently clean and fresh.</p>
+                        <div class="text-3xl font-semibold text-sage">$140 – $250</div>
+                        <p class="text-sm text-gray-500">per visit • based on home size</p>
                     </div>
-                    <div class="p-10">
-                        <h3 class="text-3xl font-semibold mb-3">Recurring Cleaning</h3>
-                        <p class="text-gray-600 mb-6">Weekly, bi-weekly, or monthly maintenance cleans. Consistent sparkle with the same trusted team.</p>
-                        <div class="text-4xl font-bold text-sage">$140–$220</div>
-                        <p class="text-sm text-gray-500">per visit • depending on home size</p>
-                    </div>
-                </div>
-
-                <!-- Deep Cleaning -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-64 bg-gradient-to-br from-[#A8C4A0] to-[#D4E4D0] flex items-center justify-center text-8xl">
-                        🧼
-                    </div>
-                    <div class="p-10">
-                        <h3 class="text-3xl font-semibold mb-3">Deep Cleaning</h3>
-                        <p class="text-gray-600 mb-6">Thorough top-to-bottom clean. Perfect for seasonal refresh, post-construction, or when your home needs extra love.</p>
-                        <div class="text-4xl font-bold text-sage">$280–$450</div>
+                    
+                    <div class="bg-white rounded-3xl p-8 shadow-sm">
+                        <h3 class="text-2xl font-medium mb-3">Deep Cleaning</h3>
+                        <p class="text-gray-600 mb-6">Intensive top-to-bottom cleaning for seasonal refresh or move-in/move-out.</p>
+                        <div class="text-3xl font-semibold text-sage">$280 – $480</div>
                         <p class="text-sm text-gray-500">one-time service</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Move In / Move Out -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-64 bg-gradient-to-br from-mint to-sage/70 flex items-center justify-center text-8xl">
-                        🏠
+            <!-- Commercial -->
+            <div class="mb-20">
+                <h2 class="text-4xl font-light mb-4">🏢 Commercial Cleaning</h2>
+                <p class="text-gray-600 mb-10 max-w-2xl">Professional cleaning for offices, medical facilities, retail spaces, and small businesses.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm">
+                        <h3 class="text-2xl font-medium mb-3">Office &amp; Workspace Cleaning</h3>
+                        <p class="text-gray-600">Daily or weekly cleaning of offices, break rooms, and common areas.</p>
                     </div>
-                    <div class="p-10">
-                        <h3 class="text-3xl font-semibold mb-3">Move-In / Move-Out Cleaning</h3>
-                        <p class="text-gray-600 mb-6">Make your transition stress-free. We clean every corner so you can focus on settling in or moving forward.</p>
-                        <div class="text-4xl font-bold text-sage">$320–$520</div>
-                        <p class="text-sm text-gray-500">based on home size</p>
+                    
+                    <div class="bg-white rounded-3xl p-8 shadow-sm">
+                        <h3 class="text-2xl font-medium mb-3">Medical &amp; Retail Spaces</h3>
+                        <p class="text-gray-600">Sanitization-focused cleaning for high-traffic and health-sensitive environments.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Special Occasion / Post-Party -->
-                <div class="bg-white rounded-3xl overflow-hidden shadow-sm">
-                    <div class="h-64 bg-gradient-to-br from-[#B5D1A8] to-mint flex items-center justify-center text-8xl">
-                        🎉
+            <!-- Add-ons (More Professional) -->
+            <div>
+                <h2 class="text-4xl font-light mb-10 text-center">Popular Add-Ons</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-3xl p-8 text-center">
+                        <div class="text-5xl mb-4">🪟</div>
+                        <h4 class="font-medium text-lg mb-2">Interior Window Cleaning</h4>
+                        <p class="text-gray-600">Crystal clear windows and sills</p>
                     </div>
-                    <div class="p-10">
-                        <h3 class="text-3xl font-semibold mb-3">Post-Party & Special Event Cleaning</h3>
-                        <p class="text-gray-600 mb-6">Quick recovery cleaning after holidays, parties, or gatherings. Leave the mess to us.</p>
-                        <div class="text-4xl font-bold text-sage">$180–$280</div>
-                        <p class="text-sm text-gray-500">one-time service</p>
+                    <div class="bg-white rounded-3xl p-8 text-center">
+                        <div class="text-5xl mb-4">🧼</div>
+                        <h4 class="font-medium text-lg mb-2">Oven &amp; Refrigerator Deep Clean</h4>
+                        <p class="text-gray-600">Grease and grime removal</p>
+                    </div>
+                    <div class="bg-white rounded-3xl p-8 text-center">
+                        <div class="text-5xl mb-4">🛁</div>
+                        <h4 class="font-medium text-lg mb-2">Bathroom Sanitization</h4>
+                        <p class="text-gray-600">Thorough disinfecting and detailing</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Add-ons -->
+    <!-- Before & After Gallery -->
     <section class="py-20 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <h2 class="text-4xl font-semibold text-center mb-12">Popular Add-Ons</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-                <div class="p-6 bg-cream rounded-3xl">
-                    <div class="text-4xl mb-3">🪟</div>
-                    <p class="font-medium">Interior Window Cleaning</p>
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-light text-center mb-12">See the Difference</h2>
+            <div class="grid md:grid-cols-2 gap-10">
+                <!-- Replace these src with your actual image paths -->
+                <div>
+                    <p class="text-sm text-gray-500 mb-3">Before</p>
+                    <img src="images/before1.jpg" alt="Before cleaning" class="rounded-3xl shadow-md w-full">
                 </div>
-                <div class="p-6 bg-cream rounded-3xl">
-                    <div class="text-4xl mb-3">🧺</div>
-                    <p class="font-medium">Laundry Service</p>
-                </div>
-                <div class="p-6 bg-cream rounded-3xl">
-                    <div class="text-4xl mb-3">🧼</div>
-                    <p class="font-medium">Oven & Fridge Deep Clean</p>
-                </div>
-                <div class="p-6 bg-cream rounded-3xl">
-                    <div class="text-4xl mb-3">🛁</div>
-                    <p class="font-medium">Bathroom Deep Sanitize</p>
+                <div>
+                    <p class="text-sm text-gray-500 mb-3">After</p>
+                    <img src="images/after1.jpg" alt="After cleaning" class="rounded-3xl shadow-md w-full">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="py-20 bg-sage text-white text-center">
-        <div class="max-w-2xl mx-auto px-6">
-            <h2 class="text-4xl font-bold mb-6">Ready for a cleaner, happier home?</h2>
-            <a href="contact.html" 
-               class="inline-block bg-white text-sage hover:bg-mint px-12 py-5 rounded-3xl text-xl font-semibold transition-colors">
-                Get Your Free Quote Today
-            </a>
+            <p class="text-center text-sm text-gray-500 mt-10">* Real results from our recent residential and commercial projects</p>
         </div>
     </section>
 

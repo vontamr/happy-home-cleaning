@@ -14,8 +14,8 @@
                 theme: {
                     extend: {
                         colors: {
-                            sage: '#9CAF88',
-                            mint: '#C4D9C4',
+                            sage: '#7E9A6E',
+                            mint: '#B8D1B8',
                             cream: '#F8F4ED',
                         }
                     }
@@ -27,84 +27,87 @@
 </head>
 <body class="bg-cream text-[#2C2C2C] font-sans">
 
-    <!-- Navigation -->
+    <!-- Navigation (same improved mobile logo) -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-5 md:px-6">
             <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-3">
-                    <div class="text-4xl">🧼</div>
-                    <div>
-                        <span class="text-3xl font-bold tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
+                <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
+                    <div class="text-3xl md:text-4xl transition-transform group-hover:scale-110">🧼</div>
+                    <div class="leading-tight">
+                        <span class="text-2xl md:text-3xl font-light tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-[10px] md:text-xs font-medium text-gray-500 tracking-widest">CLEANING LLC</span>
                     </div>
                 </a>
 
-                <div class="flex items-center gap-8 text-sm font-medium">
+                <div class="flex items-center gap-6 md:gap-8 text-sm font-medium">
                     <a href="index.html" class="hover:text-sage transition-colors">Home</a>
                     <a href="services.html" class="hover:text-sage transition-colors">Services</a>
                     <a href="about.html" class="text-sage">About</a>
                     <a href="contact.html" class="hover:text-sage transition-colors">Contact</a>
                 </div>
 
-                <a href="contact.html" 
-                   class="bg-sage hover:bg-[#7E9A6E] text-white px-6 py-3 rounded-2xl font-semibold transition-colors">
-                    Get a Free Quote
+                <a href="contact.html" class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-6 py-3 rounded-3xl font-medium text-sm md:text-base transition-all">
+                    Get Free Quote
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <section class="py-24 bg-gradient-to-br from-sage/10 to-mint/10">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h1 class="text-6xl font-bold tracking-tighter mb-6">A Clean Home Starts With Heart</h1>
-            <p class="text-2xl text-gray-600">Female-owned • Passionately crafted cleaning in Winter Haven, Florida</p>
+    <section class="bg-gradient-to-br from-cream to-mint/10 py-20">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-4">
+                Professional Cleaning You Can Trust
+            </h1>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                Female-owned • Serving Winter Haven and surrounding areas with residential and commercial cleaning excellence.
+            </p>
         </div>
     </section>
 
     <!-- Story -->
     <section class="py-20">
-        <div class="max-w-4xl mx-auto px-6">
+        <div class="max-w-5xl mx-auto px-6">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <div class="text-7xl mb-8">👋</div>
-                    <h2 class="text-4xl font-semibold leading-tight mb-8">
-                        Hi, I'm the owner of Happy Home Cleaning.
+                    <h2 class="text-4xl font-light leading-tight mb-8">
+                        A Passion for Clean Spaces
                     </h2>
-                    <div class="prose text-lg text-gray-600 space-y-6">
+                    <div class="prose text-lg text-gray-700 space-y-6">
                         <p>
-                            As a proud female business owner and mom, I know how important it is to come home to a space that feels peaceful, fresh, and truly cared for.
+                            Happy Home Cleaning LLC is a female-owned business dedicated to delivering exceptional cleaning services 
+                            for both residential and commercial clients in Winter Haven, Florida and surrounding communities.
                         </p>
                         <p>
-                            That's why I started Happy Home Cleaning — to bring gentle, thorough, and reliable cleaning to families in Winter Haven and surrounding areas.
-                        </p>
-                        <p>
-                            Every home we clean is treated like our own. We use eco-friendly products, pay close attention to detail, and always go the extra mile to make your space not just clean — but beautifully so.
+                            We believe every space — whether a family home or a professional office — deserves to be clean, 
+                            organized, and welcoming. Our team takes pride in attention to detail, reliability, and using 
+                            high-quality, eco-friendly products.
                         </p>
                     </div>
                 </div>
-                
+
                 <div class="bg-white rounded-3xl p-10 shadow-sm">
-                    <div class="space-y-8">
-                        <div class="flex gap-6">
-                            <div class="text-5xl">🌱</div>
+                    <h3 class="font-semibold text-xl mb-6">What Sets Us Apart</h3>
+                    <div class="space-y-6">
+                        <div class="flex gap-5">
+                            <span class="text-3xl">🏠</span>
                             <div>
-                                <h4 class="font-semibold">Eco-Friendly Focus</h4>
-                                <p class="text-gray-600">We prioritize non-toxic, plant-based cleaners that are safe for kids, pets, and the planet.</p>
+                                <h4 class="font-medium">Residential Cleaning</h4>
+                                <p class="text-gray-600">Regular maintenance, deep cleans, move-in/move-out for homes and apartments.</p>
                             </div>
                         </div>
-                        <div class="flex gap-6">
-                            <div class="text-5xl">❤️</div>
+                        <div class="flex gap-5">
+                            <span class="text-3xl">🏢</span>
                             <div>
-                                <h4 class="font-semibold">Locally Owned & Operated</h4>
-                                <p class="text-gray-600">Proudly serving Winter Haven, Lake Wales, Haines City, and Polk County.</p>
+                                <h4 class="font-medium">Commercial Cleaning</h4>
+                                <p class="text-gray-600">Office buildings, medical facilities, retail spaces, and small businesses.</p>
                             </div>
                         </div>
-                        <div class="flex gap-6">
-                            <div class="text-5xl">🛡️</div>
+                        <div class="flex gap-5">
+                            <span class="text-3xl">🌱</span>
                             <div>
-                                <h4 class="font-semibold">Fully Insured & Bonded</h4>
-                                <p class="text-gray-600">Your home and belongings are always protected.</p>
+                                <h4 class="font-medium">Eco-Friendly Approach</h4>
+                                <p class="text-gray-600">We prioritize safe, non-toxic products that are gentle on your family, pets, and the environment.</p>
                             </div>
                         </div>
                     </div>
@@ -113,27 +116,13 @@
         </div>
     </section>
 
-    <!-- Values -->
-    <section class="py-20 bg-white">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h2 class="text-4xl font-semibold mb-12">What Matters Most to Us</h2>
-            <div class="grid md:grid-cols-3 gap-10">
-                <div class="p-8">
-                    <div class="text-6xl mb-6">✨</div>
-                    <h3 class="text-2xl font-medium mb-3">Attention to Detail</h3>
-                    <p class="text-gray-600">We don’t just clean — we make your home shine in ways you’ll actually notice and love.</p>
-                </div>
-                <div class="p-8">
-                    <div class="text-6xl mb-6">🤝</div>
-                    <h3 class="text-2xl font-medium mb-3">Trust & Reliability</h3>
-                    <p class="text-gray-600">Same team. On time. Every time. Your home is safe with us.</p>
-                </div>
-                <div class="p-8">
-                    <div class="text-6xl mb-6">🌸</div>
-                    <h3 class="text-2xl font-medium mb-3">Gentle & Pretty</h3>
-                    <p class="text-gray-600">We believe cleaning should feel good — calm, beautiful, and uplifting.</p>
-                </div>
-            </div>
+    <!-- Trust Bar -->
+    <section class="py-12 bg-white border-t border-b">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm">
+            <div>Fully Insured &amp; Bonded</div>
+            <div>Background Checked Team</div>
+            <div>Reliable &amp; On Time</div>
+            <div>Satisfaction Guaranteed</div>
         </div>
     </section>
 
