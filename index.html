@@ -6,13 +6,11 @@
     <title>Happy Home Cleaning LLC | Winter Haven, FL</title>
     <meta name="description" content="Professional residential and commercial cleaning in Winter Haven, Florida. Female-owned.">
     
-    <!-- Reliable Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script>
         function initTailwind() {
             tailwind.config = {
-                content: [],
                 theme: {
                     extend: {
                         colors: {
@@ -40,34 +38,44 @@
         }
         .bubble {
             position: absolute;
-            bottom: -60px;
-            background: rgba(244, 217, 224, 0.75);
+            bottom: -80px;
+            background: rgba(244, 217, 224, 0.85);   /* More visible pinkish */
+            border: 2px solid rgba(255,255,255,0.9);
             border-radius: 50%;
-            box-shadow: 0 0 15px rgba(126, 154, 110, 0.3);
+            box-shadow: 0 0 25px rgba(244, 217, 224, 0.6);
             animation: floatBubble linear infinite;
         }
         @keyframes floatBubble {
-            0% { transform: translateY(0) scale(1); opacity: 0.8; }
-            100% { transform: translateY(-130vh) scale(0.5); opacity: 0; }
+            0% { 
+                transform: translateY(0) scale(1); 
+                opacity: 0.9; 
+            }
+            100% { 
+                transform: translateY(-140vh) scale(0.4); 
+                opacity: 0; 
+            }
         }
     </style>
 </head>
-<body class="bg-cream text-[#2C2C2C] font-sans">
+<body class="bg-cream text-[#2C2C2C] font-sans overflow-x-hidden">
 
-    <!-- Navigation - Clean & Trustworthy Logo -->
+    <!-- Navigation - Fixed Mobile Logo -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
+        <div class="max-w-7xl mx-auto px-5 md:px-6">
             <div class="flex items-center justify-between h-16">
-                <!-- Improved Trustworthy Logo -->
-                <a href="index.html" class="flex items-center gap-3 group">
-                    <div class="w-9 h-9 bg-sage text-white rounded-2xl flex items-center justify-center text-2xl font-bold">H</div>
-                    <div>
-                        <span class="text-2xl font-semibold tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-xs font-medium text-gray-500 -mt-0.5">CLEANING LLC</span>
+                
+                <!-- Improved Mobile-Friendly Logo -->
+                <a href="index.html" class="flex items-center gap-2.5 group">
+                    <div class="w-8 h-8 md:w-10 md:h-10 bg-sage text-white rounded-2xl flex items-center justify-center text-2xl font-bold flex-shrink-0">
+                        H
+                    </div>
+                    <div class="leading-none">
+                        <span class="text-2xl md:text-3xl font-semibold tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-[10px] md:text-xs font-medium text-gray-500 tracking-widest">CLEANING LLC</span>
                     </div>
                 </a>
 
-                <div class="flex items-center gap-8 text-sm font-medium">
+                <div class="flex items-center gap-6 md:gap-8 text-sm font-medium">
                     <a href="index.html" class="hover:text-sage transition-colors">Home</a>
                     <a href="services.html" class="hover:text-sage transition-colors">Services</a>
                     <a href="about.html" class="hover:text-sage transition-colors">About</a>
@@ -75,7 +83,7 @@
                 </div>
 
                 <a href="contact.html" 
-                   class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold text-base transition-all shadow-md">
+                   class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-7 py-4 rounded-3xl font-semibold text-base transition-all shadow-md">
                     Book Your Clean
                 </a>
             </div>
@@ -84,9 +92,12 @@
 
     <!-- Hero -->
     <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/10 to-sage/5">
+        
+        <!-- More Visible Bubbles -->
         <div class="bubbles" id="bubbles"></div>
 
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10 pt-8 md:pt-12">
+            
             <div class="space-y-10">
                 <div class="inline-flex items-center gap-3 bg-white px-6 py-3 rounded-3xl shadow-sm">
                     <span class="text-xl">🌴</span>
@@ -128,18 +139,24 @@
         </div>
     </header>
 
+    <script src="script.js"></script>
+
+    <!-- More Visible Bubble Script -->
     <script>
         function createBubbles() {
             const container = document.getElementById('bubbles');
-            for (let i = 0; i < 35; i++) {
+            for (let i = 0; i < 45; i++) {   // Increased number
                 const bubble = document.createElement('div');
                 bubble.classList.add('bubble');
-                const size = Math.random() * 40 + 18;
+                
+                const size = Math.random() * 48 + 20;   // Slightly bigger
                 bubble.style.width = `${size}px`;
                 bubble.style.height = `${size}px`;
-                bubble.style.left = `${Math.random() * 100}%`;
-                bubble.style.animationDuration = `${Math.random() * 12 + 10}s`;
-                bubble.style.animationDelay = `-${Math.random() * 10}s`;
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.animationDuration = `${Math.random() * 14 + 11}s`;
+                bubble.style.animationDelay = `-${Math.random() * 18}s`;
+                bubble.style.opacity = Math.random() * 0.7 + 0.55;   // More visible
+                
                 container.appendChild(bubble);
             }
         }
