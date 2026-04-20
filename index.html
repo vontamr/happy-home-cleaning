@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Home Cleaning LLC | Winter Haven, FL</title>
-    <meta name="description" content="Professional residential and commercial cleaning in Winter Haven, Florida. Female-owned.">
+    <title>House Cleaning Services Winter Haven FL | Happy Home Cleaning LLC</title>
+    <meta name="description" content="Women-owned house cleaning services in Winter Haven, FL. Professional deep cleaning, move-out cleaning, regular maid service & more.">
     
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://cdn.tailwindcss.com" async></script>
     <script>
         function initTailwind() {
             tailwind.config = {
+                content: ["./**/*.{html,js}"],
                 theme: {
                     extend: {
                         colors: {
@@ -20,33 +20,43 @@
                         }
                     }
                 }
-            }
+            };
         }
         window.addEventListener('load', initTailwind);
     </script>
 
     <style>
-        .bubbles {
+        .hero-bg {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
+            background: linear-gradient(135deg, #F8F4ED 0%, #E8F0E4 100%);
             overflow: hidden;
-            pointer-events: none;
-            z-index: 1;
         }
-        .bubble {
+        .glow {
             position: absolute;
-            bottom: -60px;
-            background: rgba(244, 217, 224, 0.88);
             border-radius: 50%;
-            box-shadow: 0 0 28px rgba(244, 217, 224, 0.65);
-            animation: floatBubble linear infinite;
+            background: radial-gradient(circle, rgba(184,209,184,0.6) 0%, transparent 70%);
+            filter: blur(40px);
+            animation: glowMove 25s ease-in-out infinite;
         }
-        @keyframes floatBubble {
-            0% { transform: translateY(0) scale(1); opacity: 0.9; }
-            100% { transform: translateY(-120vh) scale(0.35); opacity: 0; }
+        .shine {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 25px #fff, 0 0 45px #f8c1d9;
+            animation: shineFloat 12s linear infinite;
+        }
+        @keyframes glowMove {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(80px, -60px); }
+        }
+        @keyframes shineFloat {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+            20% { opacity: 0.9; }
+            80% { opacity: 0.9; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
@@ -68,20 +78,45 @@
                     <a href="index.html" class="hover:text-sage">Home</a>
                     <a href="services.html" class="hover:text-sage">Services</a>
                     <a href="about.html" class="hover:text-sage">About</a>
-                    <a href="contact.html" class="hover:text-sage">Contact</a>
+                    <a href="book.html" class="hover:text-sage">Book Now</a>
                 </div>
 
-                <a href="contact.html" 
-                   class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
+                <a href="book.html" 
+                   class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
+                    Book Your Clean
+                </a>
+
+                <div class="hamburger md:hidden" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-6 flex flex-col gap-6 text-lg">
+                <a href="index.html" class="hover:text-sage">Home</a>
+                <a href="services.html" class="hover:text-sage">Services</a>
+                <a href="about.html" class="hover:text-sage">About</a>
+                <a href="book.html" class="hover:text-sage">Book Now</a>
+                <a href="book.html" class="mt-4 bg-sage text-white py-4 rounded-3xl text-center font-semibold">
                     Book Your Clean
                 </a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/15 to-sage/10">
-        <div class="bubbles" id="bubbles"></div>
+    <!-- Hero with Noticeable Glow + Shine Effect -->
+    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/30 to-sage/10">
+        <div class="hero-bg"></div>
+
+        <!-- Large glowing orbs -->
+        <div class="glow" style="width: 600px; height: 600px; top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="glow" style="width: 800px; height: 800px; bottom: 10%; right: 15%; animation-delay: 8s; opacity: 0.7;"></div>
+
+        <!-- Floating shine particles -->
+        <div class="sparkles" id="sparkles"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="max-w-2xl">
@@ -91,39 +126,76 @@
                 </div>
 
                 <h1 class="text-6xl md:text-7xl font-light leading-none tracking-tighter mb-8">
-                    Sparkling clean homes.<br>
-                    <span class="text-sage">Happy hearts.</span>
+                    Professional House Cleaning<br>
+                    <span class="text-sage">in Winter Haven, FL</span>
                 </h1>
 
                 <p class="text-2xl text-gray-700 mb-12 leading-relaxed">
-                    Female-owned professional cleaning service delivering beautiful results 
-                    for homes and businesses in Winter Haven, Davenport, Clermont, Lakeland, Tampa, Valrico, Riverview and surrounding counties.
+                    Women-owned local cleaning company delivering sparkling deep cleans, reliable maid service, 
+                    move-out cleaning and more across Winter Haven and surrounding areas.
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-5">
-                    <a href="contact.html" 
-                       class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-12 py-7 rounded-3xl text-2xl font-semibold shadow-xl transition-all flex items-center justify-center gap-3">
-                        Book Your Clean
+                    <a href="book.html"
+                       class="bg-sage hover:bg-[#6B8459] text-white px-12 py-7 rounded-3xl text-2xl font-semibold shadow-xl transition-all flex items-center justify-center gap-3">
+                        Book House Cleaning Now
                         <span class="text-3xl">✨</span>
                     </a>
-                    
-                    <a href="services.html" 
+                    <a href="services.html"
                        class="border-2 border-sage text-sage hover:bg-sage hover:text-white px-10 py-7 rounded-3xl text-xl font-medium transition-all">
-                        View Services
+                        See Our Services
                     </a>
                 </div>
 
-                <!-- Smaller Star Rating - Placed below main info -->
                 <div class="mt-16 flex items-center gap-3 text-gray-700">
                     <div class="text-3xl">⭐️⭐️⭐️⭐️⭐️</div>
                     <div class="text-lg">
                         <span class="font-medium">4.9 out of 5</span>
-                        <span class="text-sm text-gray-500 ml-2">from 47+ happy clients</span>
+                        <span class="text-sm text-gray-500 ml-2">from 47+ happy Winter Haven clients</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Reviews Section (kept from before) -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-light tracking-tight mb-3">What Our Clients Say</h2>
+                <p class="text-lg text-gray-600">Real reviews from happy homes in Winter Haven</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-cream rounded-3xl p-8 shadow-sm">
+                    <div class="text-3xl mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+                    <p class="text-gray-700 italic mb-6">"They did a deep clean on my entire house and it looks brand new! Every surface sparkles."</p>
+                    <div>
+                        <p class="font-medium">Sarah M.</p>
+                        <p class="text-sm text-gray-500">Winter Haven, FL</p>
+                    </div>
+                </div>
+
+                <div class="bg-cream rounded-3xl p-8 shadow-sm">
+                    <div class="text-3xl mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+                    <p class="text-gray-700 italic mb-6">"Move-out cleaning was stress-free. They got every corner spotless."</p>
+                    <div>
+                        <p class="font-medium">Michael T.</p>
+                        <p class="text-sm text-gray-500">Davenport, FL</p>
+                    </div>
+                </div>
+
+                <div class="bg-cream rounded-3xl p-8 shadow-sm">
+                    <div class="text-3xl mb-4">⭐️⭐️⭐️⭐️⭐️</div>
+                    <p class="text-gray-700 italic mb-6">"Weekly cleaning has been a game changer. The attention to detail is incredible!"</p>
+                    <div>
+                        <p class="font-medium">Jessica R.</p>
+                        <p class="text-sm text-gray-500">Lakeland, FL</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Built By -->
     <div class="text-center py-8 bg-white text-xs text-gray-400 border-t">
@@ -133,21 +205,32 @@
     </div>
 
     <script>
-        function createBubbles() {
-            const container = document.getElementById('bubbles');
-            for (let i = 0; i < 50; i++) {
-                const bubble = document.createElement('div');
-                bubble.classList.add('bubble');
-                const size = Math.random() * 52 + 20;
-                bubble.style.width = `${size}px`;
-                bubble.style.height = `${size}px`;
-                bubble.style.left = `${Math.random() * 100}vw`;
-                bubble.style.animationDuration = `${Math.random() * 18 + 12}s`;
-                bubble.style.animationDelay = `-${Math.random() * 15}s`;
-                container.appendChild(bubble);
+        // Create floating shine particles
+        function createSparkles() {
+            const container = document.createElement('div');
+            container.className = 'sparkles absolute inset-0 pointer-events-none';
+            document.querySelector('header').appendChild(container);
+
+            for (let i = 0; i < 65; i++) {
+                const s = document.createElement('div');
+                s.className = 'shine';
+                s.style.left = Math.random() * 100 + 'vw';
+                s.style.animationDuration = (Math.random() * 8 + 9) + 's';
+                s.style.animationDelay = '-' + (Math.random() * 15) + 's';
+                s.style.opacity = Math.random() * 0.7 + 0.4;
+                container.appendChild(s);
             }
         }
-        window.addEventListener('load', createBubbles);
+
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('load', createSparkles);
     </script>
 </body>
 </html>

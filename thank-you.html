@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You | Happy Home Cleaning LLC</title>
+    
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            sage: '#7E9A6E',
+                            mint: '#B8D1B8',
+                            cream: '#F8F4ED',
+                        }
+                    }
+                }
+            };
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+</head>
+<body class="bg-cream text-[#2C2C2C] font-sans min-h-screen flex items-center">
+
+    <div class="max-w-2xl mx-auto px-6 text-center">
+        <div class="mb-10">
+            <div class="inline-flex items-center justify-center w-24 h-24 bg-sage text-white rounded-full text-6xl mb-8">✨</div>
+        </div>
+        
+        <h1 class="text-5xl font-light tracking-tight mb-6">Thank You!</h1>
+        
+        <p class="text-2xl text-gray-700 mb-8">
+            Your booking request has been received.
+        </p>
+        
+        <p class="text-lg text-gray-600 mb-12 max-w-md mx-auto">
+            We’ll contact you within 1 business day to confirm your cleaning date and time.
+        </p>
+
+        <div class="bg-white rounded-3xl p-8 mb-12">
+            <p class="text-sm text-gray-500">You should also receive a confirmation email shortly.</p>
+        </div>
+
+        <a href="index.html" 
+           class="inline-block bg-sage hover:bg-[#6B8459] text-white px-10 py-4 rounded-3xl font-medium transition-all">
+            Return to Homepage
+        </a>
+    </div>
+
+</body>
+</html>
