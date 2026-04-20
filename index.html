@@ -32,31 +32,34 @@
             background: linear-gradient(135deg, #F8F4ED 0%, #E8F0E4 100%);
             overflow: hidden;
         }
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(126, 154, 110, 0.6);
+            border-radius: 50%;
+            box-shadow: 0 0 15px #7E9A6E;
+            animation: germMove linear infinite;
+            opacity: 0.7;
+        }
+        @keyframes germMove {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0.3);
+                opacity: 0;
+            }
+        }
         .glow {
             position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(184,209,184,0.4) 0%, transparent 70%);
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(184,209,184,0.6) 0%, transparent 70%);
-            filter: blur(40px);
-            animation: glowMove 25s ease-in-out infinite;
-        }
-        .shine {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 25px #fff, 0 0 45px #f8c1d9;
-            animation: shineFloat 12s linear infinite;
-        }
-        @keyframes glowMove {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(80px, -60px); }
-        }
-        @keyframes shineFloat {
-            0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
-            20% { opacity: 0.9; }
-            80% { opacity: 0.9; }
-            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
+            filter: blur(60px);
+            animation: glowPulse 15s ease-in-out infinite;
         }
     </style>
 </head>
@@ -107,16 +110,16 @@
         </div>
     </nav>
 
-    <!-- Hero with Noticeable Glow + Shine Effect -->
-    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/30 to-sage/10">
+    <!-- Hero with Moving Germs / Cleaning Particles -->
+    <header class="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-br from-cream via-mint/20 to-sage/10">
         <div class="hero-bg"></div>
 
-        <!-- Large glowing orbs -->
-        <div class="glow" style="width: 600px; height: 600px; top: 10%; left: 10%; animation-delay: 0s;"></div>
-        <div class="glow" style="width: 800px; height: 800px; bottom: 10%; right: 15%; animation-delay: 8s; opacity: 0.7;"></div>
+        <!-- Large soft glows -->
+        <div class="glow" style="top: 15%; left: 10%; animation-delay: 0s;"></div>
+        <div class="glow" style="bottom: 20%; right: 15%; animation-delay: 7s; opacity: 0.75;"></div>
 
-        <!-- Floating shine particles -->
-        <div class="sparkles" id="sparkles"></div>
+        <!-- Moving particles (germs being cleaned away) -->
+        <div class="particles absolute inset-0 pointer-events-none" id="particles"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="max-w-2xl">
@@ -158,7 +161,7 @@
         </div>
     </header>
 
-    <!-- Reviews Section (kept from before) -->
+    <!-- Reviews -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-12">
@@ -205,20 +208,27 @@
     </div>
 
     <script>
-        // Create floating shine particles
-        function createSparkles() {
+        // Create moving "germs being cleaned" particles
+        function createParticles() {
             const container = document.createElement('div');
-            container.className = 'sparkles absolute inset-0 pointer-events-none';
+            container.className = 'absolute inset-0 pointer-events-none';
             document.querySelector('header').appendChild(container);
 
-            for (let i = 0; i < 65; i++) {
-                const s = document.createElement('div');
-                s.className = 'shine';
-                s.style.left = Math.random() * 100 + 'vw';
-                s.style.animationDuration = (Math.random() * 8 + 9) + 's';
-                s.style.animationDelay = '-' + (Math.random() * 15) + 's';
-                s.style.opacity = Math.random() * 0.7 + 0.4;
-                container.appendChild(s);
+            for (let i = 0; i < 85; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                
+                p.style.left = Math.random() * 100 + 'vw';
+                p.style.animationDuration = (Math.random() * 7 + 8) + 's';
+                p.style.animationDelay = '-' + (Math.random() * 12) + 's';
+                p.style.opacity = Math.random() * 0.6 + 0.4;
+                
+                // Random size
+                const size = Math.random() * 8 + 5;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                
+                container.appendChild(p);
             }
         }
 
@@ -230,7 +240,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        window.addEventListener('load', createSparkles);
+        window.addEventListener('load', createParticles);
     </script>
 </body>
 </html>
