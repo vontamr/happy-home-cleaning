@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Cleaning Services | Happy Home Cleaning LLC - Winter Haven, FL</title>
-    <meta name="description" content="Professional house cleaning services in Winter Haven, FL. Deep cleaning, recurring maid service, move-out cleaning, Airbnb turnovers & more. Women-owned.">
     
     <script src="https://cdn.tailwindcss.com" async></script>
     <script>
@@ -26,24 +25,44 @@
     </script>
 
     <style>
-        .hamburger {
+        .service-card {
+            transition: all 0.4s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+        .service-card.selected {
+            border-color: #7E9A6E;
+            background-color: #f8f4ed;
+        }
+        .queue-sidebar {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 320px;
+            background: white;
+            border: 2px solid #7E9A6E;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            z-index: 40;
             display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
         }
-        .hamburger span {
-            width: 28px;
-            height: 3px;
-            background: #2C2C2C;
-            transition: all 0.3s ease;
+        @media (min-width: 1024px) {
+            .queue-sidebar { display: block; }
         }
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
+        .mobile-queue-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            border-top: 3px solid #7E9A6E;
+            z-index: 50;
         }
     </style>
 </head>
-<body class="bg-cream text-[#2C2C2C] font-sans">
+<body class="bg-cream text-[#2C2C2C] font-sans pb-24 lg:pb-0">
 
     <!-- Navigation -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
@@ -57,7 +76,6 @@
                     </div>
                 </a>
 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                     <a href="index.html" class="hover:text-sage">Home</a>
                     <a href="services.html" class="text-sage font-semibold">Services</a>
@@ -65,29 +83,7 @@
                     <a href="book.html" class="hover:text-sage">Book Now</a>
                 </div>
 
-                <!-- Get Free Quote Button -->
-                <a href="book.html" 
-                   class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
-                    Get Free Quote
-                </a>
-
-                <!-- Hamburger -->
-                <div class="hamburger md:hidden" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <div class="px-6 py-6 flex flex-col gap-6 text-lg">
-                <a href="index.html" class="hover:text-sage">Home</a>
-                <a href="services.html" class="text-sage font-semibold">Services</a>
-                <a href="about.html" class="hover:text-sage">About</a>
-                <a href="book.html" class="hover:text-sage">Book Now</a>
-                <a href="book.html" class="mt-4 bg-sage text-white py-4 rounded-3xl text-center font-semibold">
+                <a href="book.html" class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
                     Get Free Quote
                 </a>
             </div>
@@ -95,124 +91,232 @@
     </nav>
 
     <!-- Hero -->
-    <section class="bg-gradient-to-br from-sage/10 to-cream py-20">
+    <section class="bg-gradient-to-br from-sage/10 to-cream py-16">
         <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-4">Our Professional Services</h1>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Women-owned cleaning service delivering sparkling results for homes and businesses in Winter Haven and surrounding areas.
+            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-4">Simple Pricing.<br>Exceptional Results.</h1>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                Transparent, fair pricing for high-quality residential and commercial cleaning across Polk County, Hillsborough County, and surrounding areas.
             </p>
         </div>
     </section>
 
-    <section class="py-20">
-        <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
+        
+        <!-- Main Content -->
+        <div class="flex-1">
 
-            <!-- Residential Cleaning -->
-            <div class="mb-20">
-                <h2 class="text-4xl font-light mb-6">🏠 Residential Cleaning</h2>
-                <p class="text-gray-600 max-w-3xl mb-10 text-lg">
-                    From weekly maintenance to deep seasonal cleans, we take care of your home like it's our own.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-3xl p-8 shadow-sm">
-                        <h3 class="text-2xl font-medium mb-3">Recurring Cleaning</h3>
-                        <p class="text-gray-600 mb-6">Weekly, bi-weekly, or monthly cleaning to keep your home consistently fresh and tidy.</p>
-                        <div class="text-3xl font-semibold text-sage">$140 – $250</div>
-                        <p class="text-sm text-gray-500">per visit • based on home size</p>
+            <!-- Residential -->
+            <h2 class="text-3xl font-light mb-8">Residential Cleaning Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" id="residential-grid"></div>
+
+            <!-- Specialty -->
+            <h2 class="text-3xl font-light mb-8">Specialty Cleaning Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" id="specialty-grid"></div>
+
+            <!-- Add-Ons & Commercial -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-3xl font-light mb-8">Add-On Services</h2>
+                    <div class="space-y-10 text-sm">
+                        <div>
+                            <h3 class="font-medium text-lg mb-4">Kitchen Services</h3>
+                            <ul class="space-y-2">
+                                <li>Oven Cleaning: <span class="font-medium">$40 – $80+</span></li>
+                                <li>Fridge Cleaning: <span class="font-medium">$40 – $80+</span></li>
+                                <li>Cabinet Exterior: <span class="font-medium">$30 – $75</span></li>
+                                <li>Interior Cabinet Cleaning: <span class="font-medium">$60 – $150</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-4">Bathroom Services</h3>
+                            <ul class="space-y-2">
+                                <li>Walk-In Shower Detail: <span class="font-medium">$30 – $75</span></li>
+                                <li>Soap Scum Removal: <span class="font-medium">$50 – $100</span></li>
+                                <li>Mold / Mildew Treatment: <span class="font-medium">$75 – $150+</span></li>
+                                <li>Steam Shower Clean: <span class="font-medium">$50 – $120</span></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-lg mb-4">Detail & Floor Care</h3>
+                            <ul class="space-y-2">
+                                <li>Carpet Cleaning: <span class="font-medium">$55 per room</span></li>
+                                <li>Tile & Grout Cleaning: <span class="font-medium">$0.50 – $1.50 per sq ft</span></li>
+                                <li>Interior Windows: <span class="font-medium">$5 – $8 each</span></li>
+                                <li>Baseboards: <span class="font-medium">$0.10 – $0.20 per sq ft</span></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-3xl p-8 shadow-sm">
-                        <h3 class="text-2xl font-medium mb-3">Deep Cleaning</h3>
-                        <p class="text-gray-600 mb-6">Thorough top-to-bottom cleaning perfect for move-ins, move-outs, or seasonal refresh.</p>
-                        <div class="text-3xl font-semibold text-sage">$280 – $480</div>
-                        <p class="text-sm text-gray-500">one-time service</p>
+                </div>
+
+                <div>
+                    <h2 class="text-3xl font-light mb-8">Commercial & Medical Cleaning</h2>
+                    <div class="space-y-8">
+                        <!-- Commercial -->
+                        <div class="bg-white rounded-3xl p-8">
+                            <h3 class="font-medium text-xl mb-6">Commercial Cleaning</h3>
+                            <div class="space-y-6">
+                                <div><span class="font-medium">Standard:</span> $0.08 – $0.12 per sq ft</div>
+                                <div><span class="font-medium">Plus:</span> $0.10 – $0.18 per sq ft</div>
+                                <div><span class="font-medium">Premium:</span> $0.15 – $0.25 per sq ft</div>
+                            </div>
+                        </div>
+
+                        <!-- Medical -->
+                        <div class="bg-white rounded-3xl p-8 border border-sage/30">
+                            <h3 class="font-medium text-xl mb-4">Medical & Healthcare Facility Cleaning</h3>
+                            <p class="text-gray-600 text-sm mb-6">Disinfection-focused cleaning compliant with healthcare standards.</p>
+                            <div class="space-y-4 text-sm">
+                                <div><span class="font-medium">Medical Office Cleaning:</span> $0.15 – $0.35 per sq ft</div>
+                                <div><span class="font-medium">Dental / Clinic:</span> $0.20 – $0.40 per sq ft</div>
+                                <div><span class="font-medium">Hourly Rate:</span> $50 – $80 per cleaner</div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-6">Includes enhanced disinfection of high-touch surfaces, exam rooms, and restrooms.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Airbnb & Short-Term Rentals -->
-            <div class="mb-20 bg-white rounded-3xl p-10 shadow-sm">
-                <h2 class="text-3xl font-medium mb-4">🏡 Airbnb & Short-Term Rental Turnovers</h2>
-                <p class="text-gray-600 text-lg leading-relaxed mb-6">
-                    Fast, reliable turnaround cleaning between guests. We sanitize high-touch surfaces, change linens, 
-                    and ensure your property is 5-star guest ready every time.
-                </p>
-                <div class="text-3xl font-semibold text-sage">$180 – $320</div>
-                <p class="text-sm text-gray-500">per turnover • depending on property size</p>
-            </div>
-
-            <!-- New Construction / Post-Construction -->
-            <div class="mb-20">
-                <h2 class="text-4xl font-light mb-6">🏗️ New Construction & Post-Construction Cleaning</h2>
-                <p class="text-gray-600 mb-8">
-                    Final deep cleaning after construction, painting, flooring, and renovations. We remove dust and debris so your space is move-in ready.
-                </p>
-                <div class="bg-white rounded-3xl p-8 shadow-sm">
-                    <h3 class="text-2xl font-medium mb-3">Post-Construction Deep Clean</h3>
-                    <p class="text-gray-600">Complete cleaning of new builds and renovated properties.</p>
-                    <div class="text-3xl font-semibold text-sage mt-6">$450 – $850+</div>
-                    <p class="text-sm text-gray-500">Custom quote based on square footage</p>
-                </div>
-            </div>
-
-            <!-- Commercial -->
-            <div class="mb-20">
-                <h2 class="text-4xl font-light mb-6">🏢 Commercial Cleaning</h2>
-                <p class="text-gray-600 mb-10">Professional cleaning for offices, medical facilities, retail spaces, and small businesses.</p>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white rounded-3xl p-8 shadow-sm">
-                        <h3 class="text-2xl font-medium mb-3">Office & Workspace Cleaning</h3>
-                        <p class="text-gray-600">Daily, weekly, or bi-weekly cleaning of offices and common areas.</p>
-                        <div class="text-3xl font-semibold text-sage mt-6">Custom Quote</div>
-                    </div>
-                    <div class="bg-white rounded-3xl p-8 shadow-sm">
-                        <h3 class="text-2xl font-medium mb-3">Medical & Retail Spaces</h3>
-                        <p class="text-gray-600">Focused sanitization for high-traffic and health-sensitive environments.</p>
-                        <div class="text-3xl font-semibold text-sage mt-6">Custom Quote</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Popular Add-ons -->
-            <div>
-                <h2 class="text-4xl font-light text-center mb-12">Popular Add-Ons</h2>
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div class="bg-white rounded-3xl p-8 text-center shadow-sm">
-                        <div class="text-5xl mb-4">🪟</div>
-                        <h4 class="font-medium text-lg">Interior Window Cleaning</h4>
-                    </div>
-                    <div class="bg-white rounded-3xl p-8 text-center shadow-sm">
-                        <div class="text-5xl mb-4">🧼</div>
-                        <h4 class="font-medium text-lg">Oven & Refrigerator Deep Clean</h4>
-                    </div>
-                    <div class="bg-white rounded-3xl p-8 text-center shadow-sm">
-                        <div class="text-5xl mb-4">🛁</div>
-                        <h4 class="font-medium text-lg">Bathroom Sanitization</h4>
-                    </div>
+            <!-- Image Placeholder Section -->
+            <div class="mt-20 border-t pt-12">
+                <h2 class="text-3xl font-light mb-6">Our Work</h2>
+                <p class="text-gray-600 mb-8">Add your before/after photos here</p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Add your image tags here -->
+                    <div class="bg-gray-200 aspect-video rounded-2xl flex items-center justify-center text-gray-400">Image 1</div>
+                    <div class="bg-gray-200 aspect-video rounded-2xl flex items-center justify-center text-gray-400">Image 2</div>
+                    <div class="bg-gray-200 aspect-video rounded-2xl flex items-center justify-center text-gray-400">Image 3</div>
+                    <div class="bg-gray-200 aspect-video rounded-2xl flex items-center justify-center text-gray-400">Image 4</div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-deep text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="mb-6 text-lg">Women-owned • Serving Winter Haven & surrounding areas with pride</p>
-            <div class="text-xs opacity-60">
-                © 2026 Happy Home Cleaning LLC • Built by VSIT Solutions
-            </div>
+        <!-- Desktop Queue Sidebar -->
+        <div class="queue-sidebar p-6" id="desktop-queue">
+            <h3 class="font-semibold text-lg mb-4">Your Selected Services</h3>
+            <div id="queue-items" class="space-y-4 text-sm min-h-[200px]"></div>
+            
+            <button onclick="proceedToStripe()" id="pay-btn"
+                    class="mt-8 w-full bg-sage hover:bg-[#6B8459] disabled:bg-gray-300 text-white py-4 rounded-3xl font-semibold transition-all">
+                Proceed to Secure Stripe Payment
+            </button>
+            <p class="text-center text-xs text-gray-500 mt-4">Final pricing confirmed after review.</p>
         </div>
-    </footer>
+    </div>
+
+    <!-- Mobile Queue Bar -->
+    <div class="mobile-queue-bar lg:hidden">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="font-medium">
+                Selected: <span id="mobile-count" class="text-sage font-semibold">0</span>
+            </div>
+            <button onclick="toggleMobileQueue()" class="text-sage font-medium">View / Edit</button>
+            <button onclick="proceedToStripe()" id="mobile-pay-btn"
+                    class="bg-sage text-white px-8 py-3 rounded-3xl text-sm font-semibold">Pay Securely</button>
+        </div>
+    </div>
 
     <script>
-        // Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobile-menu');
+        let queue = [];
 
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
+        const services = [
+            { id: 1, category: "residential", title: "Essential Clean", desc: "Maintenance cleaning for tidy homes", price: "$0.10 – $0.15 per sq ft" },
+            { id: 2, category: "residential", title: "Signature Clean", desc: "Deep cleaning with detailed attention", price: "$0.15 – $0.20 per sq ft" },
+            { id: 3, category: "residential", title: "Premier Clean", desc: "Move-in / Move-out or heavy duty", price: "$0.20 – $0.50 per sq ft" },
+            { id: 4, category: "specialty", title: "Airbnb Turnover", desc: "Short-term rental cleaning", price: "$80 – $180+" },
+            { id: 5, category: "specialty", title: "Real Estate Listing Clean", desc: "Photo-ready preparation", price: "$150 – $350+" },
+            { id: 6, category: "specialty", title: "Post-Construction Cleaning", desc: "3-phase new build clean", price: "$0.30 – $0.60 per sq ft" },
+            { id: 7, category: "add-on", title: "Oven & Fridge Deep Clean", desc: "", price: "$80 – $160" },
+            { id: 8, category: "add-on", title: "Carpet Cleaning", desc: "", price: "$55 per room" }
+        ];
+
+        function createCard(service) {
+            const card = document.createElement('div');
+            card.className = `service-card bg-white rounded-3xl p-8 border-2 border-transparent cursor-pointer`;
+            card.innerHTML = `
+                <h3 class="font-semibold text-xl mb-3">${service.title}</h3>
+                <p class="text-gray-600 mb-6">${service.desc}</p>
+                <div class="text-lg font-medium text-sage">${service.price}</div>
+            `;
+            card.addEventListener('click', () => toggleService(service, card));
+            return card;
+        }
+
+        function toggleService(service, cardEl) {
+            const index = queue.findIndex(s => s.id === service.id);
+            if (index === -1) {
+                queue.push(service);
+                cardEl.classList.add('selected');
+            } else {
+                queue.splice(index, 1);
+                cardEl.classList.remove('selected');
+            }
+            updateQueue();
+        }
+
+        function updateQueue() {
+            const container = document.getElementById('queue-items');
+            container.innerHTML = '';
+
+            if (queue.length === 0) {
+                container.innerHTML = `<p class="text-gray-400">No services selected yet</p>`;
+            } else {
+                queue.forEach((s, i) => {
+                    const div = document.createElement('div');
+                    div.className = "flex justify-between bg-cream p-4 rounded-2xl";
+                    div.innerHTML = `
+                        <div>
+                            <div class="font-medium">${s.title}</div>
+                            <div class="text-xs text-gray-500">${s.price}</div>
+                        </div>
+                        <button onclick="removeFromQueue(${i}); event.stopImmediatePropagation()" class="text-red-500 text-xl">×</button>
+                    `;
+                    container.appendChild(div);
+                });
+            }
+
+            document.getElementById('mobile-count').textContent = queue.length;
+            document.getElementById('pay-btn').disabled = queue.length === 0;
+            document.getElementById('mobile-pay-btn').disabled = queue.length === 0;
+        }
+
+        function removeFromQueue(index) {
+            queue.splice(index, 1);
+            renderAllCards();
+            updateQueue();
+        }
+
+        function renderAllCards() {
+            const resGrid = document.getElementById('residential-grid');
+            const specGrid = document.getElementById('specialty-grid');
+
+            resGrid.innerHTML = '';
+            specGrid.innerHTML = '';
+
+            services.forEach(service => {
+                const card = createCard(service);
+                if (service.category === "residential") resGrid.appendChild(card);
+                else specGrid.appendChild(card);
             });
         }
+
+        function proceedToStripe() {
+            if (queue.length === 0) return;
+            const list = queue.map(s => s.title).join(", ");
+            if (confirm(`Proceed to Stripe checkout with:\n\n${list}\n\nFinal quote will be confirmed after review.`)) {
+                alert("Redirecting to secure Stripe payment...");
+                // Replace with your real Stripe session URL in production
+                setTimeout(() => window.location.href = "book.html", 1000);
+            }
+        }
+
+        function toggleMobileQueue() {
+            alert("Selected services:\n" + queue.map(s => `• ${s.title} — ${s.price}`).join("\n"));
+        }
+
+        window.addEventListener('load', () => {
+            renderAllCards();
+            updateQueue();
+        });
     </script>
 </body>
 </html>
