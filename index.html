@@ -1,338 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Home Cleaning LLC | Winter Haven, FL</title>
-<meta name="description" content="Professional house cleaning services in Winter Haven, FL. Women-owned.">
-<script src="https://cdn.tailwindcss.com" async></script>
-<script>
-function initTailwind() {
-    tailwind.config = {
-        content: ["./**/*.{html,js}"],
-        theme: {
-            extend: {
-                colors: {
-                    sage: '#7E9A6E',
-                    mint: '#B8D1B8',
-                    cream: '#F8F4ED',
-                }
-            }
-        }
-    };
-}
-window.addEventListener('load', initTailwind);
-</script>
-
-<style>
-    .hero {
-        position: relative;
-        min-height: 100vh;
-        overflow: hidden;
-        background: linear-gradient(to bottom right, #f8f4ed, #e0f0d8);
-    }
-    .germ-container {
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        pointer-events: none;
-        overflow: hidden;
-    }
-
-    /* === Super Visible Cartoon Germs === */
-    .germ {
-        position: absolute;
-        width: 62px;
-        height: 62px;
-        pointer-events: auto;
-        cursor: pointer;
-        filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
-    }
-
-    .germ-body {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        position: relative;
-        animation: germ-wiggle 0.75s infinite alternate ease-in-out;
-    }
-
-    /* Green Germs */
-    .germ.green .germ-body {
-        background: radial-gradient(circle at 40% 35%, #9CC17F, #5F7A55);
-        border: 5px solid #2F4A2E;
-    }
-
-    /* Black Germs */
-    .germ.black .germ-body {
-        background: radial-gradient(circle at 40% 35%, #4A4A4A, #1F1F1F);
-        border: 5px solid #111;
-    }
-
-    .germ-eye {
-        position: absolute;
-        background: white;
-        width: 19px;
-        height: 23px;
-        border-radius: 50%;
-        top: 15px;
-        border: 2px solid #111;
-    }
-    .germ-eye-left  { left: 12px; }
-    .germ-eye-right { right: 12px; }
-
-    .germ-pupil {
-        position: absolute;
-        background: #111;
-        width: 10px;
-        height: 13px;
-        border-radius: 50%;
-        top: 5px;
-        left: 4px;
-        animation: pupil-move 2s infinite;
-    }
-
-    .germ-mouth {
-        position: absolute;
-        bottom: 13px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 21px;
-        height: 8px;
-        background: #111;
-        border-radius: 0 0 50% 50%;
-    }
-
-    .germ::before {
-        content: '';
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        background: #111;
-        border-radius: 50%;
-        top: -8px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    /* Full Rise Germs */
-    .germ.full {
-        animation: germRiseFull 14s linear infinite;
-    }
-
-    @keyframes germRiseFull {
-        0% {
-            transform: translateY(130vh) scale(0.6) rotate(0deg);
-            opacity: 0.98;
-        }
-        50% {
-            transform: translateY(40vh) scale(1.25) rotate(420deg);
-            opacity: 0.98;           /* Stay strong until halfway */
-        }
-        100% {
-            transform: translateY(-220px) scale(1.4) rotate(840deg);
-            opacity: 0;
-        }
-    }
-
-    /* Mid Germs — Float just below the logo */
-    .germ.mid {
-        animation: germRiseMid 11s linear infinite;
-    }
-
-    @keyframes germRiseMid {
-        0% {
-            transform: translateY(110vh) scale(0.7) rotate(0deg);
-            opacity: 0.98;
-        }
-        50% {
-            transform: translateY(38vh) scale(1.2) rotate(360deg);
-            opacity: 0.98;           /* Stay strong until halfway */
-        }
-        100% {
-            transform: translateY(35vh) scale(1.25) rotate(720deg);
-            opacity: 0.45;
-        }
-    }
-
-    @keyframes germ-wiggle {
-        from { transform: rotate(-13deg) scale(1); }
-        to   { transform: rotate(13deg) scale(1.12); }
-    }
-
-    @keyframes pupil-move {
-        0%, 100% { transform: translate(0, 0); }
-        50%      { transform: translate(3px, 2px); }
-    }
-
-    .germ.cleaned {
-        animation: germDie 0.6s forwards !important;
-    }
-
-    @keyframes germDie {
-        0%   { transform: scale(1) rotate(0deg); }
-        50%  { transform: scale(1.5) rotate(45deg); }
-        100% { transform: scale(0.1) rotate(200deg); opacity: 0; }
-    }
-
-    .logo-img {
-        height: 52px;
-        width: auto;
-    }
-</style>
-</head>
-<body class="bg-cream text-[#2C2C2C] font-sans">
-
-<!-- Navigation -->
-<nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex items-center justify-between h-16">
-<a href="index.html" class="flex items-center gap-3">
-<img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="logo-img">
-<div>
-<span class="text-2xl font-light tracking-tight text-sage">Happy Home</span>
-<span class="block text-xs font-medium text-gray-500 -mt-1 tracking-widest">CLEANING LLC</span>
-</div>
-</a>
-<div class="hidden md:flex items-center gap-8 text-sm font-medium">
-<a href="index.html" class="text-sage font-semibold">Home</a>
-<a href="services.html" class="hover:text-sage">Services</a>
-<a href="about.html" class="hover:text-sage">About</a>
-<a href="book.html" class="hover:text-sage">Book Now</a>
-</div>
-<a href="book.html" class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
-                    Get Free Quote
-</a>
-</div>
-</div>
-</nav>
-
-<!-- Hero -->
-<section class="hero flex items-center">
-    <div class="germ-container" id="germ-container"></div>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Home Cleaning LLC | Winter Haven, FL</title>
+    <meta name="description" content="Women-owned professional house cleaning services in Winter Haven, FL.">
     
-    <div class="max-w-5xl mx-auto px-6 text-center hero-content relative z-10">
-        <div class="mb-8 flex justify-center">
-            <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-32 w-auto">
-        </div>
-        <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur-md px-6 py-3 rounded-3xl mb-8 shadow-sm">
-            <span class="font-medium text-lg">Women-Owned • Winter Haven, FL</span>
-        </div>
-        <h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-none mb-6">
-            Sparkling Clean Homes,<br>
-            <span class="text-sage">Every Single Time</span>
-        </h1>
-        <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">
-            Professional, reliable, and eco-friendly cleaning services based in Winter Haven and servicing all areas in Polk County, Hillsborough County, Lake County and surrounding areas.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="book.html" class="bg-sage hover:bg-[#6B8459] text-white px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
-                Book Your Cleaning Now
-            </a>
-            <a href="services.html" class="border-2 border-sage hover:bg-sage hover:text-white text-sage px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
-                See Our Services
-            </a>
+    <script src="https://cdn.tailwindcss.com" async></script>
+    <script>
+        function initTailwind() {
+            tailwind.config = {
+                content: ["./**/*.{html,js}"],
+                theme: {
+                    extend: {
+                        colors: {
+                            sage: '#7E9A6E',
+                            mint: '#B8D1B8',
+                            cream: '#F8F4ED',
+                        }
+                    }
+                }
+            };
+        }
+        window.addEventListener('load', initTailwind);
+    </script>
+
+    <style>
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom right, #f8f4ed, #e0f0d8);
+        }
+        .germ-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .germ {
+            position: absolute;
+            width: 56px;
+            height: 56px;
+            pointer-events: auto;
+            cursor: pointer;
+            filter: drop-shadow(0 12px 25px rgba(0, 0, 0, 0.35));
+            opacity: 0.9;
+        }
+        .germ-body {
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            position: relative;
+            animation: germ-wiggle 0.85s infinite alternate ease-in-out;
+        }
+        .germ.green .germ-body { background: radial-gradient(circle at 40% 35%, #9CC17F, #5F7A55); border: 5px solid #2F4A2E; }
+        .germ.black .germ-body { background: radial-gradient(circle at 40% 35%, #4A4A4A, #1F1F1F); border: 5px solid #111; }
+        .germ-eye { position: absolute; background: white; width: 18px; height: 22px; border-radius: 50%; top: 14px; border: 2px solid #111; }
+        .germ-eye-left { left: 11px; }
+        .germ-eye-right { right: 11px; }
+        .germ-pupil { position: absolute; background: #111; width: 9px; height: 12px; border-radius: 50%; top: 5px; left: 4px; animation: pupil-move 2.5s infinite; }
+        .germ-mouth { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 20px; height: 7px; background: #111; border-radius: 0 0 50% 50%; }
+        .germ::before { content: ''; position: absolute; width: 15px; height: 15px; background: #111; border-radius: 50%; top: -7px; left: 50%; transform: translateX(-50%); }
+
+        @keyframes germ-wiggle { from { transform: rotate(-12deg) scale(1); } to { transform: rotate(12deg) scale(1.1); } }
+        @keyframes pupil-move { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(3px, 2px); } }
+        .germ.cleaned { animation: germDie 0.55s forwards !important; }
+        @keyframes germDie { 0% { transform: scale(1) rotate(0deg); } 60% { transform: scale(1.6) rotate(60deg); } 100% { transform: scale(0.1) rotate(220deg); opacity: 0; } }
+
+        .marquee { overflow: hidden; white-space: nowrap; }
+        .marquee-content {
+            display: inline-flex;
+            gap: 3rem;
+            animation: marquee 35s linear infinite;
+        }
+        @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    </style>
+</head>
+<body class="bg-cream text-[#2C2C2C] font-sans overflow-x-hidden">
+
+    <!-- Marquee -->
+    <div class="bg-white border-b py-3 text-sm font-medium overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content flex items-center text-sage">
+                <span>✅ Women-Owned &amp; Operated</span>
+                <span>✅ Fully Insured &amp; Bonded</span>
+                <span>✅ Background Checked Team</span>
+                <span>✅ Eco-Friendly Products</span>
+                <span>✅ Satisfaction Guaranteed</span>
+                <span>✅ Same-Day Quotes Available</span>
+                <span>✅ Women-Owned &amp; Operated</span>
+                <span>✅ Fully Insured &amp; Bonded</span>
+                <span>✅ Background Checked Team</span>
+                <span>✅ Eco-Friendly Products</span>
+                <span>✅ Satisfaction Guaranteed</span>
+                <span>✅ Same-Day Quotes Available</span>
+            </div>
         </div>
     </div>
-</section>
 
-<!-- Reviews Section -->
-<section class="py-20 bg-white">
-<div class="max-w-6xl mx-auto px-6">
-<div class="text-center mb-12">
-<h2 class="text-4xl font-light tracking-tight mb-3">What Our Clients Say</h2>
-<div class="flex justify-center gap-1 text-3xl text-yellow-400">★★★★★</div>
-<p class="text-gray-600 mt-2">Real Google Reviews • 4.6 Stars</p>
-</div>
-<div class="grid md:grid-cols-3 gap-8">
-<div class="bg-cream rounded-3xl p-8 shadow-sm">
-<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="italic text-gray-700 mb-6">"Showed up when they said & the homeowner was happy. Thanks."</p>
-<p class="font-medium">Brady Springer</p>
-</div>
-<div class="bg-cream rounded-3xl p-8 shadow-sm">
-<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="italic text-gray-700 mb-6">"Called because of last minute house showing. Happy Home came on short notice and made everything shine like new!"</p>
-<p class="font-medium">William Gainer</p>
-</div>
-<div class="bg-cream rounded-3xl p-8 shadow-sm">
-<div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
-<p class="italic text-gray-700 mb-6">"Professional and thorough, great pricing also."</p>
-<p class="font-medium">Christy Hatcher</p>
-</div>
-</div>
-<div class="text-center mt-10">
-<a href="https://reviews.birdeye.com/happy-home-cleaning-llc-169542788768219" target="_blank" class="inline-flex items-center gap-2 text-sage hover:text-[#6B8459] font-medium">
-                    Read all 43 Google Reviews →
-</a>
-</div>
-</div>
-</section>
+    <!-- Navigation -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex items-center justify-between h-16">
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-10 w-auto">
+                    <div>
+                        <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
+                    </div>
+                </a>
 
-<script>
-// === Germs with delayed fade (halfway) ===
-const germContainer = document.getElementById('germ-container');
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="text-sage font-semibold">Home</a>
+                    <a href="services.html" class="hover:text-sage">Services</a>
+                    <a href="about.html" class="hover:text-sage">About</a>
+                    <a href="book.html" class="hover:text-sage">Book Now</a>
+                </div>
 
-function createGerm() {
-    const germ = document.createElement('div');
-    
-    const isMid = Math.random() > 0.58;
-    germ.className = `germ ${Math.random() > 0.65 ? 'black' : 'green'} ${isMid ? 'mid' : 'full'}`;
+                <a href="book.html" class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
+                    Get Free Quote
+                </a>
 
-    const size = 55 + Math.random() * 28;
-    germ.style.width = `${size}px`;
-    germ.style.height = `${size}px`;
-    germ.style.left = `${Math.random() * 100}vw`;
-    germ.style.bottom = `-${size * 1.6}px`;
-    
-    germ.style.animationDuration = isMid 
-        ? `${9 + Math.random() * 12}s` 
-        : `${11 + Math.random() * 14}s`;
-    
-    germ.style.animationDelay = `-${Math.random() * 45}s`;
-    germ.style.opacity = "0.98";
-
-    germ.innerHTML = `
-        <div class="germ-body">
-            <div class="germ-eye germ-eye-left"><div class="germ-pupil"></div></div>
-            <div class="germ-eye germ-eye-right"><div class="germ-pupil"></div></div>
-            <div class="germ-mouth"></div>
+                <div class="hamburger md:hidden" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
         </div>
-    `;
+    </nav>
 
-    germContainer.appendChild(germ);
+    <!-- Hero -->
+    <section class="hero flex items-center relative">
+        <div class="germ-container" id="germ-container"></div>
+       
+        <div class="max-w-5xl mx-auto px-6 text-center hero-content relative z-10">
+            <div class="mb-8 flex justify-center">
+                <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-36 w-auto">
+            </div>
+            <div class="inline-flex items-center gap-3 bg-white/90 backdrop-blur-md px-6 py-3 rounded-3xl mb-8 shadow-sm">
+                <span class="font-medium text-lg">Women-Owned • Winter Haven, FL</span>
+            </div>
+            <h1 class="text-6xl md:text-7xl font-light tracking-tighter leading-none mb-6">
+                Sparkling Clean Homes,<br>
+                <span class="text-sage">Every Single Time</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto mb-10">
+                Professional, reliable, and eco-friendly cleaning services based in Winter Haven and servicing all areas in Polk County, Hillsborough County, Lake County and surrounding areas.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="book.html" class="bg-sage hover:bg-[#6B8459] text-white px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
+                    Book Your Cleaning Now
+                </a>
+                <a href="services.html" class="border-2 border-sage hover:bg-sage hover:text-white text-sage px-10 py-5 rounded-3xl font-semibold text-lg transition-all">
+                    See Our Services
+                </a>
+            </div>
+            <p class="text-sm mt-8 text-gray-500">👆 Tap the germs to clean them!</p>
+        </div>
+    </section>
 
-    setTimeout(() => {
-        if (germ.parentNode) germ.remove();
-    }, isMid ? 32000 : 45000);
-}
+    <!-- Services Teaser -->
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 class="text-4xl font-light text-center mb-4">Our Most Loved Services</h2>
+            <p class="text-center text-gray-600 mb-12">Tap any card to learn more</p>
 
-// Frequent spawning
-setInterval(() => {
-    if (document.visibilityState === 'visible') {
-        createGerm();
-    }
-}, 130);
+            <div class="grid md:grid-cols-3 gap-8">
+                <div onclick="window.location='services.html'" class="bg-white rounded-3xl p-8 cursor-pointer hover:shadow-xl transition-all">
+                    <div class="text-5xl mb-6">🏠</div>
+                    <h3 class="text-2xl font-medium mb-3">Recurring Cleaning</h3>
+                    <p class="text-gray-600 mb-6">Weekly or bi-weekly maintenance so your home always feels fresh.</p>
+                    <div class="text-sage font-semibold">Starting at $140</div>
+                </div>
+                <div onclick="window.location='services.html'" class="bg-white rounded-3xl p-8 cursor-pointer hover:shadow-xl transition-all">
+                    <div class="text-5xl mb-6">✨</div>
+                    <h3 class="text-2xl font-medium mb-3">Deep Cleaning</h3>
+                    <p class="text-gray-600 mb-6">Thorough top-to-bottom clean for move-ins, move-outs & seasonal refresh.</p>
+                    <div class="text-sage font-semibold">Starting at $280</div>
+                </div>
+                <div onclick="window.location='services.html'" class="bg-white rounded-3xl p-8 cursor-pointer hover:shadow-xl transition-all">
+                    <div class="text-5xl mb-6">🏡</div>
+                    <h3 class="text-2xl font-medium mb-3">Airbnb Turnovers</h3>
+                    <p class="text-gray-600 mb-6">Fast, reliable cleaning between guests — 5-star ready every time.</p>
+                    <div class="text-sage font-semibold">Starting at $180</div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-// Click to clean
-document.addEventListener('click', (e) => {
-    document.querySelectorAll('.germ').forEach(germ => {
-        const rect = germ.getBoundingClientRect();
-        if (e.clientX >= rect.left && e.clientX <= rect.right &&
-            e.clientY >= rect.top && e.clientY <= rect.bottom) {
-            germ.classList.add('cleaned');
-            setTimeout(() => germ.remove(), 650);
+    <!-- Reviews Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-light tracking-tight mb-3">What Our Clients Say</h2>
+                <div class="flex justify-center gap-1 text-3xl text-yellow-400">★★★★★</div>
+                <p class="text-gray-600 mt-2">Real Google Reviews • 4.6 Stars</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-cream rounded-3xl p-8 shadow-sm">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="italic text-gray-700 mb-6">"Showed up when they said & the homeowner was happy. Thanks."</p>
+                    <p class="font-medium">Brady Springer</p>
+                </div>
+                <div class="bg-cream rounded-3xl p-8 shadow-sm">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="italic text-gray-700 mb-6">"Called because of last minute house showing. Happy Home came on short notice and made everything shine like new!"</p>
+                    <p class="font-medium">William Gainer</p>
+                </div>
+                <div class="bg-cream rounded-3xl p-8 shadow-sm">
+                    <div class="flex gap-1 text-yellow-400 mb-4">★★★★★</div>
+                    <p class="italic text-gray-700 mb-6">"Professional and thorough, great pricing also."</p>
+                    <p class="font-medium">Christy Hatcher</p>
+                </div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="https://reviews.birdeye.com/happy-home-cleaning-llc-169542788768219" target="_blank" class="inline-flex items-center gap-2 text-sage hover:text-[#6B8459] font-medium">
+                    Read all 43 Google Reviews →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#2C2C2C] text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-2xl font-light mb-2">Happy Home Cleaning LLC</p>
+            <p class="text-gray-400">Women-Owned • Winter Haven &amp; Central Florida</p>
+            <p class="text-xs opacity-60 mt-8">
+                © 2026 Happy Home Cleaning LLC • Built with ❤️ by <span class="text-sage">VSIT Solutions</span>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const germContainer = document.getElementById('germ-container');
+
+        function createGerm() {
+            const germ = document.createElement('div');
+            const isBlack = Math.random() > 0.65;
+            germ.className = `germ ${isBlack ? 'black' : 'green'}`;
+            
+            const size = 48 + Math.random() * 24;
+            germ.style.width = `${size}px`;
+            germ.style.height = `${size}px`;
+            germ.style.left = `${Math.random() * 100}vw`;
+            germ.style.top = `${Math.random() * 75}vh`;
+            
+            const duration = 18 + Math.random() * 24;
+            germ.style.animation = `floatAcross ${duration}s linear infinite`;
+            germ.style.animationDelay = `-${Math.random() * 25}s`;
+            
+            germ.innerHTML = `
+                <div class="germ-body">
+                    <div class="germ-eye germ-eye-left"><div class="germ-pupil"></div></div>
+                    <div class="germ-eye germ-eye-right"><div class="germ-pupil"></div></div>
+                    <div class="germ-mouth"></div>
+                </div>
+            `;
+            germContainer.appendChild(germ);
+            setTimeout(() => germ.remove(), duration * 1000 + 8000);
         }
-    });
-});
 
-// Initial burst
-window.addEventListener('load', () => {
-    for (let i = 0; i < 35; i++) {
-        setTimeout(createGerm, i * 50);
-    }
-});
-</script>
+        const style = document.createElement('style');
+        style.innerHTML = `@keyframes floatAcross { 0% { transform: translateY(0) rotate(0deg); } 100% { transform: translateY(-130vh) rotate(720deg); } }`;
+        document.head.appendChild(style);
 
+        setInterval(() => {
+            if (document.visibilityState === 'visible') createGerm();
+        }, 340);
+
+        document.addEventListener('click', (e) => {
+            document.querySelectorAll('.germ').forEach(germ => {
+                const rect = germ.getBoundingClientRect();
+                if (e.clientX >= rect.left && e.clientX <= rect.right && e.clientY >= rect.top && e.clientY <= rect.bottom) {
+                    germ.classList.add('cleaned');
+                    setTimeout(() => germ.remove(), 550);
+                }
+            });
+        });
+
+        window.addEventListener('load', () => {
+            for (let i = 0; i < 18; i++) {
+                setTimeout(createGerm, i * 90);
+            }
+        });
+    </script>
 </body>
 </html>

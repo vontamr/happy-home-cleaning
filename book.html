@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Cleaning | Happy Home Cleaning LLC - Winter Haven, FL</title>
+    <meta name="description" content="Book professional cleaning services with Happy Home Cleaning LLC. Women-owned, reliable, and eco-friendly.">
     
     <script src="https://cdn.tailwindcss.com" async></script>
     <script>
@@ -23,25 +24,70 @@
         }
         window.addEventListener('load', initTailwind);
     </script>
+
+    <style>
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+    </style>
 </head>
 <body class="bg-cream text-[#2C2C2C] font-sans">
+
+    <!-- Marquee Floater -->
+    <div class="bg-white border-b py-3 text-xs md:text-sm font-medium overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content flex items-center gap-8 md:gap-12 text-sage">
+                <span>✅ Women-Owned &amp; Operated</span>
+                <span>✅ Fully Insured &amp; Bonded</span>
+                <span>✅ Background Checked Team</span>
+                <span>✅ Eco-Friendly Products</span>
+                <span>✅ Satisfaction Guaranteed</span>
+                <span>✅ Same-Day Quotes Available</span>
+                <span>✅ Women-Owned &amp; Operated</span>
+                <span>✅ Fully Insured &amp; Bonded</span>
+                <span>✅ Background Checked Team</span>
+                <span>✅ Eco-Friendly Products</span>
+                <span>✅ Satisfaction Guaranteed</span>
+                <span>✅ Same-Day Quotes Available</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-16">
                 <a href="index.html" class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-sage text-white rounded-2xl flex items-center justify-center text-3xl">🧼</div>
+                    <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-10 w-auto">
                     <div>
                         <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
                         <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
                     </div>
                 </a>
+
                 <div class="hidden md:flex items-center gap-8 text-sm font-medium">
                     <a href="index.html" class="hover:text-sage">Home</a>
                     <a href="services.html" class="hover:text-sage">Services</a>
                     <a href="about.html" class="hover:text-sage">About</a>
                     <a href="book.html" class="text-sage font-semibold">Book Now</a>
+                </div>
+
+                <a href="book.html" 
+                   class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
+                    Get Free Quote
+                </a>
+
+                <div class="hamburger md:hidden" id="hamburger">
+                    <span></span><span></span><span></span>
                 </div>
             </div>
         </div>
@@ -63,39 +109,46 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium mb-2">Full Name *</label>
-                        <input type="text" name="name" required class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none">
+                        <input type="text" name="name" required 
+                               class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-2">Phone Number *</label>
-                        <input type="tel" name="phone" required class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none">
+                        <input type="tel" name="phone" required 
+                               class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium mb-2">Email Address *</label>
-                    <input type="email" name="email" required class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none">
+                    <input type="email" name="email" required 
+                           class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
                 </div>
 
                 <div>
                     <label class="block text-sm font-medium mb-2">Type of Cleaning *</label>
-                    <select name="service" required class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none">
+                    <select name="service" required 
+                            class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
                         <option value="">Select service...</option>
                         <option value="Recurring Maid Service">Recurring Maid Service</option>
                         <option value="Deep Cleaning">Deep Cleaning</option>
                         <option value="Move-In / Move-Out Cleaning">Move-In / Move-Out Cleaning</option>
                         <option value="One-Time Cleaning">One-Time Cleaning</option>
                         <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
+                        <option value="Airbnb Turnover">Airbnb Turnover</option>
                     </select>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium mb-2">Preferred Date</label>
-                        <input type="date" name="date" class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none">
+                        <input type="date" name="date" 
+                               class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-2">Preferred Time</label>
-                        <select name="time" class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none">
+                        <select name="time" 
+                                class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
                             <option value="">Any time is fine</option>
                             <option value="Morning (8am-12pm)">Morning (8am-12pm)</option>
                             <option value="Afternoon (12pm-4pm)">Afternoon (12pm-4pm)</option>
@@ -106,8 +159,9 @@
 
                 <div>
                     <label class="block text-sm font-medium mb-2">Property Details & Special Requests</label>
-                    <textarea name="message" rows="4" placeholder="Example: 3 bed 2 bath, focus on kitchen, have pets, etc."
-                              class="w-full px-5 py-4 rounded-3xl border border-gray-200 focus:border-sage outline-none resize-y"></textarea>
+                    <textarea name="message" rows="5" 
+                              placeholder="Example: 3 bed 2 bath, focus on kitchen, have pets, pet-friendly products only, etc."
+                              class="w-full px-5 py-4 rounded-3xl border border-gray-200 focus:border-sage outline-none resize-y transition-all"></textarea>
                 </div>
 
                 <input type="hidden" name="_subject" value="New Booking Request - Happy Home Cleaning">
@@ -119,11 +173,34 @@
                 </button>
 
                 <p class="text-center text-xs text-gray-500">
-                    We'll reply within 1 business day with availability and pricing.
+                    We'll reply within 1 business day with availability and final pricing.
                 </p>
             </form>
         </div>
     </div>
 
+    <!-- Floating CTA -->
+    <a href="index.html" 
+       class="fixed bottom-6 right-6 bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-4xl hover:scale-110 transition-all z-50 md:hidden">
+        🧼
+    </a>
+
+    <footer class="bg-[#2C2C2C] text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-2xl font-light mb-2">Happy Home Cleaning LLC</p>
+            <p class="text-gray-400">Winter Haven &amp; Central Florida</p>
+            <p class="text-xs opacity-60 mt-6">© 2026 • Women-Owned • All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                alert("Mobile menu coming soon — please use the top navigation.");
+            });
+        }
+    </script>
 </body>
 </html>

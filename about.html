@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us | Happy Home Cleaning LLC</title>
+    <title>About Us | Happy Home Cleaning LLC - Winter Haven, FL</title>
+    <meta name="description" content="Learn about Happy Home Cleaning LLC — a women-owned, eco-friendly cleaning company serving Winter Haven and Central Florida with trust and excellence.">
     
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
-    
+    <script src="https://cdn.tailwindcss.com" async></script>
     <script>
         function initTailwind() {
             tailwind.config = {
+                content: ["./**/*.{html,js}"],
                 theme: {
                     extend: {
                         colors: {
@@ -20,35 +20,75 @@
                         }
                     }
                 }
-            }
+            };
         }
         window.addEventListener('load', initTailwind);
     </script>
+
+    <style>
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to   { transform: translateX(-50%); }
+        }
+    </style>
 </head>
 <body class="bg-cream text-[#2C2C2C] font-sans">
 
-    <!-- Navigation (same improved mobile logo) -->
+    <!-- Marquee Floater -->
+    <div class="bg-white border-b py-3 text-xs md:text-sm font-medium overflow-hidden">
+        <div class="marquee">
+            <div class="marquee-content flex items-center gap-8 md:gap-12 text-sage">
+                <span>✅ Women-Owned &amp; Operated</span>
+                <span>✅ Fully Insured &amp; Bonded</span>
+                <span>✅ Background Checked Team</span>
+                <span>✅ Eco-Friendly Products</span>
+                <span>✅ Satisfaction Guaranteed</span>
+                <span>✅ Same-Day Quotes Available</span>
+                <span>✅ Women-Owned &amp; Operated</span>
+                <span>✅ Fully Insured &amp; Bonded</span>
+                <span>✅ Background Checked Team</span>
+                <span>✅ Eco-Friendly Products</span>
+                <span>✅ Satisfaction Guaranteed</span>
+                <span>✅ Same-Day Quotes Available</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
     <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-5 md:px-6">
+        <div class="max-w-7xl mx-auto px-6">
             <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-2 md:gap-3 group">
-                    <div class="text-3xl md:text-4xl transition-transform group-hover:scale-110">🧼</div>
-                    <div class="leading-tight">
-                        <span class="text-2xl md:text-3xl font-light tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-[10px] md:text-xs font-medium text-gray-500 tracking-widest">CLEANING LLC</span>
+                <a href="index.html" class="flex items-center gap-3">
+                    <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-10 w-auto">
+                    <div>
+                        <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
+                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
                     </div>
                 </a>
 
-                <div class="flex items-center gap-6 md:gap-8 text-sm font-medium">
-                    <a href="index.html" class="hover:text-sage transition-colors">Home</a>
-                    <a href="services.html" class="hover:text-sage transition-colors">Services</a>
-                    <a href="about.html" class="text-sage">About</a>
-                    <a href="contact.html" class="hover:text-sage transition-colors">Contact</a>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="index.html" class="hover:text-sage">Home</a>
+                    <a href="services.html" class="hover:text-sage">Services</a>
+                    <a href="about.html" class="text-sage font-semibold">About</a>
+                    <a href="book.html" class="hover:text-sage">Book Now</a>
                 </div>
 
-                <a href="contact.html" class="bg-[#7E9A6E] hover:bg-[#6B8459] text-white px-6 py-3 rounded-3xl font-medium text-sm md:text-base transition-all">
+                <a href="book.html" 
+                   class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
                     Get Free Quote
                 </a>
+
+                <div class="hamburger md:hidden" id="hamburger">
+                    <span></span><span></span><span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -60,7 +100,7 @@
                 Professional Cleaning You Can Trust
             </h1>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-                Female-owned • Serving Winter Haven and surrounding areas with residential and commercial cleaning excellence.
+                Women-owned • Serving Winter Haven and Central Florida with care, reliability, and sparkling results.
             </p>
         </div>
     </section>
@@ -75,7 +115,7 @@
                     </h2>
                     <div class="prose text-lg text-gray-700 space-y-6">
                         <p>
-                            Happy Home Cleaning LLC is a female-owned business dedicated to delivering exceptional cleaning services 
+                            Happy Home Cleaning LLC is a women-owned business dedicated to delivering exceptional cleaning services 
                             for both residential and commercial clients in Winter Haven, Florida and surrounding communities.
                         </p>
                         <p>
@@ -118,7 +158,7 @@
 
     <!-- Trust Bar -->
     <section class="py-12 bg-white border-t border-b">
-        <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-sm font-medium">
             <div>Fully Insured &amp; Bonded</div>
             <div>Background Checked Team</div>
             <div>Reliable &amp; On Time</div>
@@ -126,6 +166,39 @@
         </div>
     </section>
 
-    <script src="script.js"></script>
+    <!-- Final CTA -->
+    <section class="py-16 bg-white">
+        <div class="max-w-2xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-light mb-6">Ready for a Cleaner Home?</h2>
+            <a href="book.html" 
+               class="inline-block bg-sage hover:bg-[#6B8459] text-white px-12 py-5 rounded-3xl font-semibold text-lg transition-all">
+                Get Your Free Quote Today →
+            </a>
+        </div>
+    </section>
+
+    <!-- Floating CTA -->
+    <a href="book.html" 
+       class="fixed bottom-6 right-6 bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-4xl hover:scale-110 transition-all z-50 md:hidden">
+        🧼
+    </a>
+
+    <footer class="bg-[#2C2C2C] text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p class="text-2xl font-light mb-2">Happy Home Cleaning LLC</p>
+            <p class="text-gray-400">Women-Owned • Winter Haven &amp; Central Florida</p>
+            <p class="text-xs opacity-60 mt-6">© 2026 • All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                alert("Mobile menu coming soon — please use the navigation links above.");
+            });
+        }
+    </script>
 </body>
 </html>
