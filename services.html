@@ -3,261 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Cleaning Services | Happy Home Cleaning LLC - Winter Haven, FL</title>
-    <meta name="description" content="Professional house cleaning services in Winter Haven, FL. Women-owned. Transparent pricing for residential, Airbnb, deep cleaning & more.">
-    
-    <script src="https://cdn.tailwindcss.com" async></script>
+    <title>Services & Pricing | Happy Home Cleaning</title>
+    <meta name="description" content="Simple pricing for house cleaning in Winter Haven. Recurring, deep, Airbnb, move-out and more.">
+    <link rel="canonical" href="https://vontamr.github.io/happy-home-cleaning/services.html">
+    <link rel="icon" href="images/logo-transparent-svg.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function initTailwind() {
-            tailwind.config = {
-                content: ["./**/*.{html,js}"],
-                theme: {
-                    extend: {
-                        colors: {
-                            sage: '#7E9A6E',
-                            mint: '#B8D1B8',
-                            cream: '#F8F4ED',
-                        }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#7E9A6E',
+                        mint: '#B8D1B8',
+                        cream: '#F8F4ED',
                     }
                 }
-            };
-        }
-        window.addEventListener('load', initTailwind);
+            }
+        };
     </script>
-
+    <link rel="stylesheet" href="css/common.css">
     <style>
         .service-card {
-            transition: all 0.4s ease;
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            border-color: #7E9A6E;
         }
         .service-card.selected {
             border-color: #7E9A6E;
-            background-color: #f8f4ed;
-        }
-        .marquee {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-        .marquee-content {
-            display: inline-flex;
-            animation: marquee 30s linear infinite;
-        }
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
+            background: #F8F4ED;
+            box-shadow: 0 0 0 2px rgba(126,154,110,0.3);
         }
     </style>
 </head>
-<body class="bg-cream text-[#2C2C2C] font-sans pb-24 lg:pb-0">
+<body class="bg-cream text-[#2C2C2C] font-sans pb-28 lg:pb-0">
 
-    <!-- Marquee Floater -->
-    <div class="bg-white border-b py-3 text-xs md:text-sm font-medium overflow-hidden">
-        <div class="marquee">
-            <div class="marquee-content flex items-center gap-8 md:gap-12 text-sage">
-                <span>✅ Women-Owned &amp; Operated</span>
-                <span>✅ Fully Insured &amp; Bonded</span>
-                <span>✅ Background Checked Team</span>
-                <span>✅ Eco-Friendly Products</span>
-                <span>✅ Satisfaction Guaranteed</span>
-                <span>✅ Same-Day Quotes Available</span>
-                <span>✅ Women-Owned &amp; Operated</span>
-                <span>✅ Fully Insured &amp; Bonded</span>
-                <span>✅ Background Checked Team</span>
-                <span>✅ Eco-Friendly Products</span>
-                <span>✅ Satisfaction Guaranteed</span>
-                <span>✅ Same-Day Quotes Available</span>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Compact Nav -->
+    <nav class="bg-white border-b sticky top-0 z-50" aria-label="Main navigation">
+        <div class="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2" aria-label="Home">
+                <img src="images/logo-transparent-svg.svg" alt="" class="h-8 w-auto" width="32" height="32">
+                <span class="font-medium text-sage hidden sm:inline">Happy Home</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-6 text-sm">
+                <a href="services.html" class="text-sage font-semibold" aria-current="page">Services</a>
+                <a href="book.html" class="hover:text-sage">Book</a>
+                <a href="my-bookings.html" class="hover:text-sage">My Bookings</a>
             </div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-10 w-auto">
-                    <div>
-                        <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
-                    </div>
-                </a>
-
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="index.html" class="hover:text-sage">Home</a>
-                    <a href="services.html" class="text-sage font-semibold">Services</a>
-                    <a href="about.html" class="hover:text-sage">About</a>
-                    <a href="book.html" class="hover:text-sage">Book Now</a>
-                </div>
-
-                <a href="book.html" 
-                   class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
-                    Get Free Quote
-                </a>
-
-                <div class="hamburger md:hidden" id="hamburger">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
+            <button class="hamburger sm:hidden" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero -->
-    <section class="bg-gradient-to-br from-sage/10 to-cream py-16">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-5xl md:text-6xl font-light tracking-tighter mb-4">Simple Pricing.<br>Exceptional Results.</h1>
-            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                Transparent, fair pricing for high-quality residential and commercial cleaning across Central Florida.
-            </p>
-        </div>
-    </section>
-
-    <div class="max-w-7xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-12">
-        <!-- Main Content -->
-        <div class="flex-1">
-            <!-- Residential -->
-            <h2 class="text-3xl font-light mb-8">Residential Cleaning Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" id="residential-grid"></div>
-
-            <!-- Specialty -->
-            <h2 class="text-3xl font-light mb-8">Specialty Cleaning Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16" id="specialty-grid"></div>
-
-            <!-- Add-Ons & Commercial -->
-            <div class="grid lg:grid-cols-2 gap-12">
-                <div>
-                    <h2 class="text-3xl font-light mb-8">Popular Add-Ons</h2>
-                    <div class="space-y-10 text-sm">
-                        <div>
-                            <h3 class="font-medium text-lg mb-4">Kitchen Services</h3>
-                            <ul class="space-y-2">
-                                <li>Oven Cleaning: <span class="font-medium">$40 – $80+</span></li>
-                                <li>Fridge Cleaning: <span class="font-medium">$40 – $80+</span></li>
-                                <li>Cabinet Exterior: <span class="font-medium">$30 – $75</span></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="font-medium text-lg mb-4">Bathroom Services</h3>
-                            <ul class="space-y-2">
-                                <li>Walk-In Shower Detail: <span class="font-medium">$30 – $75</span></li>
-                                <li>Soap Scum &amp; Mold Treatment: <span class="font-medium">$50 – $120</span></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="text-3xl font-light mb-8">Commercial &amp; Medical</h2>
-                    <div class="space-y-8">
-                        <div class="bg-white rounded-3xl p-8">
-                            <h3 class="font-medium text-xl mb-6">Commercial Cleaning</h3>
-                            <div class="space-y-4 text-sm">
-                                <div><span class="font-medium">Standard:</span> $0.08 – $0.12 per sq ft</div>
-                                <div><span class="font-medium">Premium:</span> $0.15 – $0.25 per sq ft</div>
-                            </div>
-                        </div>
-                        <div class="bg-white rounded-3xl p-8 border border-sage/30">
-                            <h3 class="font-medium text-xl mb-4">Medical &amp; Healthcare</h3>
-                            <p class="text-gray-600 text-sm">Enhanced disinfection for offices, clinics &amp; facilities.</p>
-                        </div>
-                    </div>
-                </div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <span class="font-semibold text-sage">Menu</span>
+                <button id="mobile-menu-close" aria-label="Close menu" class="p-2 text-2xl leading-none">&times;</button>
             </div>
-        </div>
-
-        <!-- Desktop Queue Sidebar -->
-        <div class="queue-sidebar p-6 hidden lg:block" id="desktop-queue">
-            <h3 class="font-semibold text-lg mb-4">Your Selected Services</h3>
-            <div id="queue-items" class="space-y-4 text-sm min-h-[200px]"></div>
-            <button onclick="proceedToBooking()" id="pay-btn"
-                    class="mt-8 w-full bg-sage hover:bg-[#6B8459] disabled:bg-gray-300 text-white py-4 rounded-3xl font-semibold transition-all">
-                Proceed to Booking
-            </button>
-            <p class="text-center text-xs text-gray-500 mt-4">We’ll confirm final pricing within 1 business day.</p>
+            <nav class="mobile-nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="about.html">About</a>
+                <a href="book.html">Book</a>
+                <a href="my-bookings.html">My Bookings</a>
+            </nav>
         </div>
     </div>
 
-    <!-- Mobile Queue Bar -->
-    <div class="mobile-queue-bar fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t-4 border-sage shadow-2xl">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="font-medium">
-                Selected: <span id="mobile-count" class="text-sage font-semibold">0</span>
+    <main id="main-content" class="max-w-5xl mx-auto px-5 py-10">
+
+        <h1 class="text-3xl font-light tracking-tight mb-1">Services &amp; pricing</h1>
+        <p class="text-gray-500 mb-10">Select what you need. Final price confirmed after we see your place.</p>
+
+        <div class="flex flex-col lg:flex-row gap-10">
+
+            <!-- Service list -->
+            <div class="flex-1 space-y-10">
+
+                <section>
+                    <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Home cleaning</h2>
+                    <div class="grid sm:grid-cols-2 gap-3" id="home-grid" role="list"></div>
+                </section>
+
+                <section>
+                    <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Specialty</h2>
+                    <div class="grid sm:grid-cols-2 gap-3" id="specialty-grid" role="list"></div>
+                </section>
+
+                <!-- Add-ons (simple) -->
+                <section>
+                    <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Add-ons</h2>
+                    <div class="bg-white rounded-2xl border border-gray-100 p-5 text-sm space-y-2">
+                        <div class="flex justify-between"><span>Oven</span><span class="text-gray-600">$40–80</span></div>
+                        <div class="flex justify-between"><span>Fridge</span><span class="text-gray-600">$40–80</span></div>
+                        <div class="flex justify-between"><span>Inside cabinets</span><span class="text-gray-600">$30–75</span></div>
+                        <div class="flex justify-between"><span>Shower detail / soap scum</span><span class="text-gray-600">$30–120</span></div>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-2">Mention add-ons in the notes when you book.</p>
+                </section>
+
+                <!-- Commercial (minimal) -->
+                <section>
+                    <h2 class="text-sm font-medium text-gray-500 uppercase tracking-wide mb-4">Commercial</h2>
+                    <div class="bg-white rounded-2xl border border-gray-100 p-5 text-sm">
+                        <p class="mb-1">Offices, retail, medical</p>
+                        <p class="text-gray-600">$0.08–0.25 / sq ft · Custom quote</p>
+                    </div>
+                </section>
             </div>
-            <button onclick="toggleMobileQueue()" class="text-sage font-medium">View / Edit</button>
-            <button onclick="proceedToBooking()" id="mobile-pay-btn"
-                    class="bg-sage text-white px-8 py-3 rounded-3xl text-sm font-semibold">
+
+            <!-- Desktop cart -->
+            <aside class="hidden lg:block w-72 shrink-0">
+                <div class="sticky top-20 bg-white rounded-2xl border border-gray-100 p-5">
+                    <h3 class="font-medium mb-4">Selected</h3>
+                    <div id="queue-items" class="space-y-2 text-sm min-h-[100px]"></div>
+                    <button onclick="proceedToBooking()" id="pay-btn" disabled
+                            class="mt-5 w-full bg-sage hover:bg-[#6B8459] disabled:bg-gray-200 disabled:text-gray-400 text-white py-3.5 rounded-xl font-semibold transition-all">
+                        Continue to book
+                    </button>
+                    <p class="text-xs text-gray-400 text-center mt-3">No charge yet</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Mobile bottom bar -->
+    <div class="fixed bottom-0 left-0 right-0 lg:hidden bg-white border-t shadow-lg z-40" role="region" aria-label="Selection summary">
+        <div class="max-w-5xl mx-auto px-5 py-3 flex items-center justify-between gap-3">
+            <div class="text-sm">
+                <span id="mobile-count" class="font-semibold text-sage">0</span> selected
+            </div>
+            <button onclick="proceedToBooking()" id="mobile-pay-btn" disabled
+                    class="bg-sage disabled:bg-gray-200 disabled:text-gray-400 text-white px-6 py-2.5 rounded-xl text-sm font-semibold">
                 Continue
             </button>
         </div>
     </div>
 
-    <!-- Floating CTA -->
-    <a href="book.html" 
-       class="fixed bottom-24 right-6 bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-4xl hover:scale-110 transition-all z-50 lg:hidden">
-        🧼
-    </a>
-
-    <footer class="bg-[#2C2C2C] text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-2xl font-light mb-2">Happy Home Cleaning LLC</p>
-            <p class="text-gray-400">Winter Haven &amp; Central Florida</p>
-        </div>
+    <footer class="border-t mt-16 py-8 text-center text-sm text-gray-500">
+        Happy Home Cleaning LLC · Winter Haven, FL
     </footer>
 
+    <script src="js/mobile-menu.js" defer></script>
+    <script src="js/booking-flow.js" defer></script>
     <script>
-        let queue = [];
+        // Match book.html naming & pricing (short & specific)
         const services = [
-            { id: 1, category: "residential", title: "Essential Clean", desc: "Maintenance cleaning for tidy homes", price: "$0.10 – $0.15 per sq ft" },
-            { id: 2, category: "residential", title: "Signature Clean", desc: "Deep cleaning with detailed attention", price: "$0.15 – $0.20 per sq ft" },
-            { id: 3, category: "residential", title: "Premier Clean", desc: "Move-in / Move-out or heavy duty", price: "$0.20 – $0.50 per sq ft" },
-            { id: 4, category: "specialty", title: "Airbnb Turnover", desc: "Short-term rental cleaning", price: "$80 – $180+" },
-            { id: 5, category: "specialty", title: "Real Estate Listing Clean", desc: "Photo-ready preparation", price: "$150 – $350+" },
-            { id: 6, category: "specialty", title: "Post-Construction Cleaning", desc: "3-phase new build clean", price: "$0.30 – $0.60 per sq ft" }
+            { id: 1, category: 'home',      title: 'Recurring clean',     desc: 'Weekly or bi-weekly',  price: 'From $140' },
+            { id: 2, category: 'home',      title: 'Deep clean',          desc: 'Top to bottom',        price: 'From $280' },
+            { id: 3, category: 'home',      title: 'One-time clean',      desc: 'Standard refresh',     price: 'From $160' },
+            { id: 4, category: 'home',      title: 'Move-in / Move-out',  desc: 'Empty home ready',     price: 'From $280' },
+            { id: 5, category: 'specialty', title: 'Airbnb turnover',     desc: 'Between guests',       price: 'From $180' },
+            { id: 6, category: 'specialty', title: 'Post-construction',   desc: 'Dust & debris',        price: 'Custom' }
         ];
+
+        let queue = [];
 
         function createCard(service) {
             const card = document.createElement('div');
-            card.className = `service-card bg-white rounded-3xl p-8 border-2 border-transparent cursor-pointer`;
+            card.className = 'service-card bg-white rounded-xl border-2 border-gray-200 p-4';
+            card.setAttribute('role', 'listitem');
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('aria-pressed', 'false');
             card.innerHTML = `
-                <h3 class="font-semibold text-xl mb-3">${service.title}</h3>
-                <p class="text-gray-600 mb-6">${service.desc}</p>
-                <div class="text-lg font-medium text-sage">${service.price}</div>
+                <div class="flex justify-between items-baseline gap-2">
+                    <span class="font-medium">${service.title}</span>
+                    <span class="text-sage text-sm font-medium whitespace-nowrap">${service.price}</span>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">${service.desc}</p>
             `;
             card.addEventListener('click', () => toggleService(service, card));
+            card.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleService(service, card);
+                }
+            });
             return card;
         }
 
         function toggleService(service, cardEl) {
-            const index = queue.findIndex(s => s.id === service.id);
-            if (index === -1) {
+            const idx = queue.findIndex(s => s.id === service.id);
+            if (idx === -1) {
                 queue.push(service);
                 cardEl.classList.add('selected');
+                cardEl.setAttribute('aria-pressed', 'true');
             } else {
-                queue.splice(index, 1);
+                queue.splice(idx, 1);
                 cardEl.classList.remove('selected');
+                cardEl.setAttribute('aria-pressed', 'false');
             }
             updateQueue();
         }
 
         function updateQueue() {
             const container = document.getElementById('queue-items');
-            container.innerHTML = '';
             if (queue.length === 0) {
-                container.innerHTML = `<p class="text-gray-400 italic">Tap services above to build your quote</p>`;
+                container.innerHTML = '<p class="text-gray-400 text-sm">Tap a service to select</p>';
             } else {
-                queue.forEach((s, i) => {
-                    const div = document.createElement('div');
-                    div.className = "flex justify-between bg-cream p-4 rounded-2xl";
-                    div.innerHTML = `
+                container.innerHTML = queue.map((s, i) => `
+                    <div class="flex justify-between items-start gap-2 bg-cream rounded-lg px-3 py-2">
                         <div>
-                            <div class="font-medium">${s.title}</div>
+                            <div class="font-medium text-sm">${s.title}</div>
                             <div class="text-xs text-gray-500">${s.price}</div>
                         </div>
-                        <button onclick="removeFromQueue(${i}); event.stopImmediatePropagation()" class="text-red-500 text-xl">×</button>
-                    `;
-                    container.appendChild(div);
-                });
+                        <button type="button" onclick="removeFromQueue(${i})" class="text-gray-400 hover:text-red-500 text-lg leading-none" aria-label="Remove ${s.title}">×</button>
+                    </div>
+                `).join('');
             }
             document.getElementById('mobile-count').textContent = queue.length;
             const disabled = queue.length === 0;
@@ -267,45 +225,45 @@
 
         function removeFromQueue(index) {
             queue.splice(index, 1);
-            renderAllCards();
+            renderAll();
             updateQueue();
         }
 
-        function renderAllCards() {
-            const resGrid = document.getElementById('residential-grid');
-            const specGrid = document.getElementById('specialty-grid');
-            resGrid.innerHTML = '';
-            specGrid.innerHTML = '';
-            services.forEach(service => {
-                const card = createCard(service);
-                if (service.category === "residential") resGrid.appendChild(card);
-                else specGrid.appendChild(card);
+        function renderAll() {
+            const home = document.getElementById('home-grid');
+            const spec = document.getElementById('specialty-grid');
+            home.innerHTML = '';
+            spec.innerHTML = '';
+            services.forEach(s => {
+                const card = createCard(s);
+                if (queue.some(q => q.id === s.id)) {
+                    card.classList.add('selected');
+                    card.setAttribute('aria-pressed', 'true');
+                }
+                if (s.category === 'home') home.appendChild(card);
+                else spec.appendChild(card);
             });
         }
 
         function proceedToBooking() {
             if (queue.length === 0) return;
-            const list = queue.map(s => s.title).join(", ");
-            if (confirm(`Proceed with these services?\n\n${list}`)) {
-                window.location.href = "book.html";
+            if (window.HHC) {
+                HHC.saveSelectedServices(queue);
             }
+            window.location.href = 'book.html';
         }
 
-        function toggleMobileQueue() {
-            const list = queue.map(s => `• ${s.title} — ${s.price}`).join("\n");
-            alert(list || "No services selected yet.\nTap any service card to add!");
-        }
-
-        // Hamburger (basic)
-        document.getElementById('hamburger')?.addEventListener('click', () => {
-            alert("Mobile menu - navigate using top links or Book Now");
-        });
-
-        // Initialize
-        window.addEventListener('load', () => {
-            renderAllCards();
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.HHC) {
+                const saved = HHC.getSelectedServices();
+                if (saved && saved.length) queue = saved;
+            }
+            renderAll();
             updateQueue();
         });
     </script>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>

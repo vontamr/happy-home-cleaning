@@ -3,204 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Your Cleaning | Happy Home Cleaning LLC - Winter Haven, FL</title>
-    <meta name="description" content="Book professional cleaning services with Happy Home Cleaning LLC. Women-owned, reliable, and eco-friendly.">
-    
-    <script src="https://cdn.tailwindcss.com" async></script>
+    <title>Book a Cleaning | Happy Home Cleaning</title>
+    <meta name="description" content="Book a professional cleaning in Winter Haven. Simple pricing. Secure booking.">
+    <link rel="canonical" href="https://vontamr.github.io/happy-home-cleaning/book.html">
+    <link rel="icon" href="images/logo-transparent-svg.svg" type="image/svg+xml">
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        function initTailwind() {
-            tailwind.config = {
-                content: ["./**/*.{html,js}"],
-                theme: {
-                    extend: {
-                        colors: {
-                            sage: '#7E9A6E',
-                            mint: '#B8D1B8',
-                            cream: '#F8F4ED',
-                        }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sage: '#7E9A6E',
+                        mint: '#B8D1B8',
+                        cream: '#F8F4ED',
                     }
                 }
-            };
-        }
-        window.addEventListener('load', initTailwind);
+            }
+        };
     </script>
-
+    <link rel="stylesheet" href="css/common.css">
+    <script type="text/javascript" src="https://sandbox.web.squarecdn.com/v1/square.js"></script>
     <style>
-        .marquee {
-            overflow: hidden;
-            white-space: nowrap;
+        .service-option {
+            transition: all 0.2s ease;
+            cursor: pointer;
         }
-        .marquee-content {
-            display: inline-flex;
-            animation: marquee 30s linear infinite;
+        .service-option:hover { border-color: #7E9A6E; }
+        .service-option.selected {
+            border-color: #7E9A6E;
+            background: #F8F4ED;
+            box-shadow: 0 0 0 2px rgba(126,154,110,0.3);
         }
-        @keyframes marquee {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-50%); }
-        }
+        #card-container { min-height: 90px; }
     </style>
 </head>
 <body class="bg-cream text-[#2C2C2C] font-sans">
 
-    <!-- Marquee Floater -->
-    <div class="bg-white border-b py-3 text-xs md:text-sm font-medium overflow-hidden">
-        <div class="marquee">
-            <div class="marquee-content flex items-center gap-8 md:gap-12 text-sage">
-                <span>✅ Women-Owned &amp; Operated</span>
-                <span>✅ Fully Insured &amp; Bonded</span>
-                <span>✅ Background Checked Team</span>
-                <span>✅ Eco-Friendly Products</span>
-                <span>✅ Satisfaction Guaranteed</span>
-                <span>✅ Same-Day Quotes Available</span>
-                <span>✅ Women-Owned &amp; Operated</span>
-                <span>✅ Fully Insured &amp; Bonded</span>
-                <span>✅ Background Checked Team</span>
-                <span>✅ Eco-Friendly Products</span>
-                <span>✅ Satisfaction Guaranteed</span>
-                <span>✅ Same-Day Quotes Available</span>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Compact Nav -->
+    <nav class="bg-white border-b sticky top-0 z-50" aria-label="Main navigation">
+        <div class="max-w-3xl mx-auto px-5 h-14 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2" aria-label="Home">
+                <img src="images/logo-transparent-svg.svg" alt="" class="h-8 w-auto" width="32" height="32">
+                <span class="font-medium text-sage hidden sm:inline">Happy Home</span>
+            </a>
+            <div class="hidden sm:flex items-center gap-6 text-sm">
+                <a href="services.html" class="hover:text-sage">Services</a>
+                <a href="my-bookings.html" class="hover:text-sage">My Bookings</a>
             </div>
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex items-center justify-between h-16">
-                <a href="index.html" class="flex items-center gap-3">
-                    <img src="images/logo-transparent-svg.svg" alt="Happy Home Cleaning LLC" class="h-10 w-auto">
-                    <div>
-                        <span class="text-3xl font-light tracking-tight text-sage">Happy Home</span>
-                        <span class="block text-xs font-medium text-gray-500 -mt-1">CLEANING LLC</span>
-                    </div>
-                </a>
-
-                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
-                    <a href="index.html" class="hover:text-sage">Home</a>
-                    <a href="services.html" class="hover:text-sage">Services</a>
-                    <a href="about.html" class="hover:text-sage">About</a>
-                    <a href="book.html" class="text-sage font-semibold">Book Now</a>
-                </div>
-
-                <a href="book.html" 
-                   class="hidden md:block bg-sage hover:bg-[#6B8459] text-white px-8 py-4 rounded-3xl font-semibold transition-all">
-                    Get Free Quote
-                </a>
-
-                <div class="hamburger md:hidden" id="hamburger">
-                    <span></span><span></span><span></span>
-                </div>
-            </div>
+            <button class="hamburger sm:hidden" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
 
-    <!-- Booking Form -->
-    <div class="max-w-2xl mx-auto px-6 py-16">
-        <div class="bg-white rounded-3xl shadow-xl p-10 md:p-12">
-            <div class="text-center mb-10">
-                <div class="inline-flex items-center gap-2 bg-sage/10 text-sage px-6 py-2 rounded-3xl mb-6">
-                    <span class="text-2xl">🧼</span>
-                    <span class="font-medium">Winter Haven, FL</span>
-                </div>
-                <h1 class="text-4xl font-light tracking-tight">Book Your Cleaning</h1>
-                <p class="text-gray-600 mt-3">Women-owned • Professional • Reliable</p>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <div class="mobile-menu-panel">
+            <div class="mobile-menu-header">
+                <span class="font-semibold text-sage">Menu</span>
+                <button id="mobile-menu-close" aria-label="Close menu" class="p-2 text-2xl leading-none">&times;</button>
             </div>
-
-            <form action="https://formspree.io/f/xqewlbnw" method="POST" class="space-y-8">
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Full Name *</label>
-                        <input type="text" name="name" required 
-                               class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Phone Number *</label>
-                        <input type="tel" name="phone" required 
-                               class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Email Address *</label>
-                    <input type="email" name="email" required 
-                           class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Type of Cleaning *</label>
-                    <select name="service" required 
-                            class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
-                        <option value="">Select service...</option>
-                        <option value="Recurring Maid Service">Recurring Maid Service</option>
-                        <option value="Deep Cleaning">Deep Cleaning</option>
-                        <option value="Move-In / Move-Out Cleaning">Move-In / Move-Out Cleaning</option>
-                        <option value="One-Time Cleaning">One-Time Cleaning</option>
-                        <option value="Post-Construction Cleaning">Post-Construction Cleaning</option>
-                        <option value="Airbnb Turnover">Airbnb Turnover</option>
-                    </select>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Preferred Date</label>
-                        <input type="date" name="date" 
-                               class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium mb-2">Preferred Time</label>
-                        <select name="time" 
-                                class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-sage outline-none transition-all">
-                            <option value="">Any time is fine</option>
-                            <option value="Morning (8am-12pm)">Morning (8am-12pm)</option>
-                            <option value="Afternoon (12pm-4pm)">Afternoon (12pm-4pm)</option>
-                            <option value="Evening (4pm-7pm)">Evening (4pm-7pm)</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium mb-2">Property Details & Special Requests</label>
-                    <textarea name="message" rows="5" 
-                              placeholder="Example: 3 bed 2 bath, focus on kitchen, have pets, pet-friendly products only, etc."
-                              class="w-full px-5 py-4 rounded-3xl border border-gray-200 focus:border-sage outline-none resize-y transition-all"></textarea>
-                </div>
-
-                <input type="hidden" name="_subject" value="New Booking Request - Happy Home Cleaning">
-                <input type="hidden" name="_next" value="https://vontamr.github.io/happy-home-cleaning/thank-you.html">
-
-                <button type="submit"
-                        class="w-full bg-sage hover:bg-[#6B8459] text-white py-6 rounded-3xl font-semibold text-lg transition-all">
-                    Submit Booking Request
-                </button>
-
-                <p class="text-center text-xs text-gray-500">
-                    We'll reply within 1 business day with availability and final pricing.
-                </p>
-            </form>
+            <nav class="mobile-nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="book.html" class="active">Book</a>
+                <a href="my-bookings.html">My Bookings</a>
+            </nav>
         </div>
     </div>
 
-    <!-- Floating CTA -->
-    <a href="index.html" 
-       class="fixed bottom-6 right-6 bg-sage text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl text-4xl hover:scale-110 transition-all z-50 md:hidden">
-        🧼
-    </a>
+    <main id="main-content" class="max-w-3xl mx-auto px-5 py-10">
 
-    <footer class="bg-[#2C2C2C] text-white py-12">
-        <div class="max-w-7xl mx-auto px-6 text-center">
-            <p class="text-2xl font-light mb-2">Happy Home Cleaning LLC</p>
-            <p class="text-gray-400">Winter Haven &amp; Central Florida</p>
-            <p class="text-xs opacity-60 mt-6">© 2026 • Women-Owned • All Rights Reserved</p>
+        <h1 class="text-3xl font-light tracking-tight mb-1">Book a cleaning</h1>
+        <p class="text-gray-500 mb-8">Winter Haven &amp; Central Florida · Usually reply same day</p>
+
+        <!-- Selected from Services page -->
+        <div id="selected-banner" class="hidden mb-8 bg-white rounded-2xl border border-sage/30 p-5">
+            <div class="flex justify-between items-start gap-4">
+                <div>
+                    <p class="text-xs font-medium text-sage uppercase tracking-wide mb-1">Your selection</p>
+                    <div id="selected-list" class="space-y-1 text-sm"></div>
+                </div>
+                <a href="services.html" class="text-sm text-sage underline shrink-0">Change</a>
+            </div>
         </div>
+
+        <form id="booking-form" action="https://formspree.io/f/xqewlbnw" method="POST" class="space-y-8">
+
+            <!-- 1. Service -->
+            <section>
+                <h2 class="text-lg font-medium mb-4">1. Choose a service</h2>
+                <div class="grid sm:grid-cols-2 gap-3" id="service-grid" role="radiogroup" aria-label="Service type">
+                    <!-- filled by JS -->
+                </div>
+                <input type="hidden" name="service" id="service-input" required>
+            </section>
+
+            <!-- 2. When -->
+            <section>
+                <h2 class="text-lg font-medium mb-4">2. When</h2>
+                <div class="grid sm:grid-cols-2 gap-4">
+                    <div>
+                        <label for="date" class="block text-sm text-gray-600 mb-1.5">Date</label>
+                        <input type="date" id="date" name="date" required
+                               class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                    </div>
+                    <div>
+                        <label for="time" class="block text-sm text-gray-600 mb-1.5">Time window</label>
+                        <select id="time" name="time" required
+                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                            <option value="">Select…</option>
+                            <option value="8am–12pm">8am – 12pm</option>
+                            <option value="12pm–4pm">12pm – 4pm</option>
+                            <option value="4pm–7pm">4pm – 7pm</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Property -->
+            <section>
+                <h2 class="text-lg font-medium mb-4">3. Your place</h2>
+                <div class="grid grid-cols-3 gap-3 mb-4">
+                    <div>
+                        <label for="beds" class="block text-sm text-gray-600 mb-1.5">Beds</label>
+                        <select id="beds" name="beds" class="w-full px-3 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5+">5+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="baths" class="block text-sm text-gray-600 mb-1.5">Baths</label>
+                        <select id="baths" name="baths" class="w-full px-3 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                            <option value="">—</option>
+                            <option value="1">1</option>
+                            <option value="1.5">1.5</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                            <option value="3.5+">3.5+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="sqft" class="block text-sm text-gray-600 mb-1.5">Sq ft</label>
+                        <input type="number" id="sqft" name="sqft" min="200" max="15000" placeholder="1800"
+                               class="w-full px-3 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm text-gray-600 mb-1.5">Notes (pets, access, focus areas…)</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Optional"
+                              class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none resize-y"></textarea>
+                </div>
+            </section>
+
+            <!-- 4. Contact -->
+            <section>
+                <h2 class="text-lg font-medium mb-4">4. Contact</h2>
+                <div class="space-y-3">
+                    <div>
+                        <label for="name" class="block text-sm text-gray-600 mb-1.5">Full name *</label>
+                        <input type="text" id="name" name="name" required autocomplete="name"
+                               class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                    </div>
+                    <div class="grid sm:grid-cols-2 gap-3">
+                        <div>
+                            <label for="phone" class="block text-sm text-gray-600 mb-1.5">Phone *</label>
+                            <input type="tel" id="phone" name="phone" required autocomplete="tel"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm text-gray-600 mb-1.5">Email *</label>
+                            <input type="email" id="email" name="email" required autocomplete="email"
+                                   class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-sage outline-none">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Price summary -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+                <div class="flex justify-between text-sm mb-1">
+                    <span id="summary-service">Select a service</span>
+                    <span id="summary-price" class="font-medium">—</span>
+                </div>
+                <p class="text-xs text-gray-500">Final price confirmed after we review your place. Most jobs fall in the range shown.</p>
+            </div>
+
+            <!-- Optional Square deposit -->
+            <section class="border-t pt-6">
+                <h2 class="text-lg font-medium mb-1">Optional deposit</h2>
+                <p class="text-sm text-gray-500 mb-4">Pay a $50 deposit now with Square (sandbox). Or skip and we’ll invoice after confirming.</p>
+                <div id="payment-status" class="text-sm mb-3 hidden"></div>
+                <div id="card-container" class="mb-2"></div>
+                <p class="text-xs text-gray-400">Sandbox test card: 4111 1111 1111 1111 · any future date · any CVV</p>
+            </section>
+
+            <!-- Hidden Formspree fields -->
+            <input type="hidden" name="selected_services" id="selected_services_field" value="">
+            <input type="hidden" name="square_payment_token" id="square_token" value="">
+            <input type="hidden" name="_subject" value="New Booking – Happy Home Cleaning">
+            <input type="hidden" name="_next" value="https://vontamr.github.io/happy-home-cleaning/thank-you.html">
+
+            <button type="submit" id="submit-btn"
+                    class="w-full bg-sage hover:bg-[#6B8459] text-white py-4 rounded-2xl font-semibold text-lg transition-all focus:ring-4 focus:ring-sage/30">
+                Request booking
+            </button>
+            <p class="text-center text-xs text-gray-500">
+                We’ll confirm availability & final price within 1 business day. Form powered by Formspree.
+            </p>
+        </form>
+    </main>
+
+    <footer class="border-t mt-16 py-8 text-center text-sm text-gray-500">
+        Happy Home Cleaning LLC · Winter Haven, FL
     </footer>
 
+    <script src="js/mobile-menu.js" defer></script>
+    <script src="js/booking-flow.js" defer></script>
     <script>
-        // Hamburger Menu
-        const hamburger = document.getElementById('hamburger');
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                alert("Mobile menu coming soon — please use the top navigation.");
+        // —— Simple service catalog (short & specific) ——
+        const SERVICES = [
+            { id: 'recurring',  label: 'Recurring clean',   price: 'From $140',  desc: 'Weekly or bi-weekly' },
+            { id: 'deep',       label: 'Deep clean',        price: 'From $280',  desc: 'Top to bottom' },
+            { id: 'move',       label: 'Move-in / Move-out', price: 'From $280', desc: 'Empty home ready' },
+            { id: 'airbnb',     label: 'Airbnb turnover',   price: 'From $180',  desc: 'Between guests' },
+            { id: 'onetime',    label: 'One-time clean',    price: 'From $160',  desc: 'Standard refresh' },
+            { id: 'postcon',    label: 'Post-construction', price: 'Custom',     desc: 'Dust & debris' }
+        ];
+
+        let selectedService = null;
+
+        function renderServices(preselectTitle) {
+            const grid = document.getElementById('service-grid');
+            grid.innerHTML = '';
+            SERVICES.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'service-option border-2 border-gray-200 rounded-xl p-4';
+                div.setAttribute('role', 'radio');
+                div.setAttribute('tabindex', '0');
+                div.setAttribute('aria-checked', 'false');
+                div.dataset.id = s.id;
+                div.innerHTML = `
+                    <div class="flex justify-between items-baseline gap-2">
+                        <span class="font-medium">${s.label}</span>
+                        <span class="text-sage text-sm font-medium whitespace-nowrap">${s.price}</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">${s.desc}</p>
+                `;
+                div.addEventListener('click', () => selectService(s, div));
+                div.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectService(s, div); }
+                });
+                grid.appendChild(div);
+
+                // Pre-select if coming from services page
+                if (preselectTitle && (
+                    preselectTitle.toLowerCase().includes(s.label.toLowerCase().split(' ')[0]) ||
+                    (s.id === 'deep' && preselectTitle.includes('Signature')) ||
+                    (s.id === 'recurring' && preselectTitle.includes('Essential')) ||
+                    (s.id === 'move' && preselectTitle.includes('Premier'))
+                )) {
+                    selectService(s, div);
+                }
             });
         }
+
+        function selectService(s, el) {
+            document.querySelectorAll('.service-option').forEach(c => {
+                c.classList.remove('selected');
+                c.setAttribute('aria-checked', 'false');
+            });
+            el.classList.add('selected');
+            el.setAttribute('aria-checked', 'true');
+            selectedService = s;
+            document.getElementById('service-input').value = s.label;
+            document.getElementById('summary-service').textContent = s.label;
+            document.getElementById('summary-price').textContent = s.price;
+        }
+
+        // —— Load selection from services page ——
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('date').min = new Date().toISOString().split('T')[0];
+
+            let preselect = null;
+            if (window.HHC) {
+                const saved = HHC.getSelectedServices();
+                if (saved && saved.length) {
+                    const banner = document.getElementById('selected-banner');
+                    const list = document.getElementById('selected-list');
+                    banner.classList.remove('hidden');
+                    list.innerHTML = saved.map(s =>
+                        `<div class="flex justify-between gap-4"><span>${s.title}</span><span class="text-sage">${s.price}</span></div>`
+                    ).join('');
+                    document.getElementById('selected_services_field').value = saved.map(s => s.title).join(', ');
+                    preselect = saved[0].title;
+                }
+            }
+            renderServices(preselect);
+        });
+
+        // —— Square (sandbox) ——
+        // Replace with your real Sandbox Application ID + Location ID
+        const appId = 'sandbox-sq0idb-XXXXXXXXXXXXXXXXXXXXXXXX';
+        const locationId = 'XXXXXXXXXXXXXXXXXXXXXXXX';
+        let card = null;
+
+        async function initSquare() {
+            if (!window.Square) return;
+            try {
+                const payments = Square.payments(appId, locationId);
+                card = await payments.card();
+                await card.attach('#card-container');
+            } catch (e) {
+                document.getElementById('card-container').innerHTML =
+                    '<p class="text-sm text-amber-700 bg-amber-50 p-3 rounded-xl">Card form appears after you add Square Application ID & Location ID. Booking still works without deposit.</p>';
+            }
+        }
+        window.addEventListener('load', initSquare);
+
+        // —— Submit (Formspree + optional Square token + local booking) ——
+        document.getElementById('booking-form').addEventListener('submit', async (e) => {
+            if (!selectedService) {
+                e.preventDefault();
+                alert('Please choose a service.');
+                return;
+            }
+
+            const statusEl = document.getElementById('payment-status');
+            const saveLocal = () => {
+                if (window.HHC) {
+                    HHC.saveBooking({
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        phone: document.getElementById('phone').value,
+                        service: document.getElementById('service-input').value,
+                        date: document.getElementById('date').value,
+                        time: document.getElementById('time').value,
+                        selected: document.getElementById('selected_services_field').value,
+                        beds: document.getElementById('beds').value,
+                        baths: document.getElementById('baths').value,
+                        sqft: document.getElementById('sqft').value,
+                        hasPaymentToken: !!document.getElementById('square_token').value
+                    });
+                    HHC.clearSelectedServices();
+                }
+            };
+
+            if (card) {
+                e.preventDefault();
+                statusEl.classList.remove('hidden');
+                statusEl.textContent = 'Getting secure payment token…';
+                statusEl.className = 'text-sm mb-3 text-sage';
+                try {
+                    const result = await card.tokenize();
+                    if (result.status === 'OK') {
+                        document.getElementById('square_token').value = result.token;
+                        statusEl.textContent = 'Token ready — submitting…';
+                        saveLocal();
+                        e.target.submit();
+                    } else {
+                        statusEl.textContent = result.errors?.[0]?.message || 'Card error';
+                        statusEl.className = 'text-sm mb-3 text-red-600';
+                    }
+                } catch (err) {
+                    statusEl.textContent = 'Skipping payment — submitting request only.';
+                    statusEl.className = 'text-sm mb-3 text-gray-600';
+                    saveLocal();
+                    setTimeout(() => e.target.submit(), 400);
+                }
+            } else {
+                saveLocal();
+                // let form submit normally to Formspree
+            }
+        });
     </script>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>
